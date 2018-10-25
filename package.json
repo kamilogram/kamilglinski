@@ -2,7 +2,7 @@
   "name": "cv",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kamilogram.github.io/kamilglinski",
+  "homepage": "https://kamilogram.github.io/kamilglinski",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
