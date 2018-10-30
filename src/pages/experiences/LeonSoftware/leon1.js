@@ -24,11 +24,12 @@ const leon1 = () => (
         <a
           href="https://www.youtube.com/watch?v=aW-wVByjLhk"
           target='_blank' rel='noopener noreferrer'
-        title='Kliknij Mnie'>
-          <img className='image80'
-            alt='Leon app view'
-            src={LeonAppView}
-          />
+          title='Kliknij Mnie'>
+            <img
+              className='image80'
+              alt='Wygląd aplikacji Leon'
+              src={LeonAppView}
+            />
         </a>
       </div>
     </article>

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://kamilogram.github.io/kamilglinski",
   "dependencies": {
+    "prettier": "^1.14.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-impressjs": "^1.1.0"

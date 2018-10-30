@@ -23,12 +23,14 @@ const togedo1 = () => (
         <div>strona</div>
         <a
           href="https://www.togedo.com/"
-          target='_blank' rel='noopener noreferrer'
-        title='Kliknij Mnie'>
-          <img className='image80'
-            alt='Leon app view'
-            src={Togedo}
-          />
+          target='_blank'
+          rel='noopener noreferrer'
+          title='Kliknij Mnie'>
+            <img
+              className='image80'
+              alt='Strona Togedo'
+              src={Togedo}
+            />
         </a>
       </div>
     </article>

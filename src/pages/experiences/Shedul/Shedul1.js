@@ -19,29 +19,41 @@ const Shedul1 = () => (
       <div>
         <div>profil firmy</div>
         <div>Rozwijanie dwóch aplikacji webowych o zasięgu ogólnoświatowym:</div>
-        <div><b>Shedul</b> - do zarządzania salonami Spa & Wellness</div>
-        <div><b>Fresha</b> - kliencka do wyszukiwania salonów oraz samodzielnej rezerwacji ich usług online.</div>
+        <div><b>Shedul</b> do zarządzania salonami Spa & Wellness - dla ich właścicieli</div>
+        <div><b>Fresha</b> - aplikacja kliencka - do wyszukiwania salonów oraz samodzielnej rezerwacji ich usług online.</div>
       </div>
-      <div>
-        <div>wygląd aplikacji</div>
-        <a
-          href="https://www.shedul.com/"
-          target='_blank' rel='noopener noreferrer'
-          title='Kliknij Mnie'>
-            <img className='image80'
-              alt='shedul.com'
-              src={ShedulAppView}
-            />
-        </a>
-        <a
-          href="https://www.fresha.com/"
-          target='_blank' rel='noopener noreferrer'
-          title='Kliknij Mnie'>
-            <img className='image80'
-              alt='fresha.com'
-              src={FreshaAppView}
-            />
-        </a>
+      <div>wygląd aplikacji</div>
+      <div className='imagesWeb'>
+        <div>
+          <a
+            href="https://www.shedul.com/"
+            target='_blank'
+            rel='noopener noreferrer'
+            title='Kliknij Mnie'
+            className='imgAsLink'>
+              <div>Shedul.com</div>
+              <img
+                className='image100'
+                alt='shedul.com'
+                src={ShedulAppView}
+                />
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.fresha.com/"
+            target='_blank'
+            rel='noopener noreferrer'
+            title='Kliknij Mnie'
+            className='imgAsLink'>
+              <div>Fresha.com</div>
+              <img
+                className='image100'
+                alt='fresha.com'
+                src={FreshaAppView}
+                />
+          </a>
+        </div>
       </div>
     </article>
   </section>

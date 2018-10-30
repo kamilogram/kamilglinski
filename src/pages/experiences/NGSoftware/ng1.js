@@ -26,7 +26,7 @@ const ng1 = () => (
           target='_blank' rel='noopener noreferrer'
         title='Kliknij Mnie'>
           <img className='image80'
-            alt='Leon app view'
+            alt='Wygląd aplikacji Filttr'
             src={Filttr}
           />
         </a>

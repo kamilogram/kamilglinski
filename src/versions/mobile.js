@@ -9,6 +9,7 @@ import {
   WebDevelopingSkills,
   LibrarySkills,
   Shedul1,
+  Shedul2,
   Togedo1,
   Ng1,
   Leon1,
@@ -41,7 +42,8 @@ const Mobile = () => (
         <h1>Doświadczenie zawodowe</h1>
       </section>
     </div>
-    <div className='step deviceStep withSubHeader'><Shedul1 /></div>
+    {/* <div className='step deviceStep withSubHeader'><Shedul1 /></div> */}
+    <div className='step deviceStep withSubHeader'><Shedul2 /></div>
     <div className='step deviceStep withSubHeader'><Togedo1 /></div>
     <div className='step deviceStep withSubHeader'><Leon1 /></div>
     <div className='step deviceStep withoutH1'><Leon2 /></div>
