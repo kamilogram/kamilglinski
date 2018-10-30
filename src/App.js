@@ -3,8 +3,8 @@ import React from 'react';
 import './App.css';
 import 'react-impressjs/styles/react-impressjs.css';
 import './css/circle.css';
-import Desktop from './versions/desktop.js';
-import Mobile from './versions/mobile.js';
+import Desktop from './versions/Desktop.js';
+import Mobile from './versions/Mobile.js';
 
 
 const app = () => {

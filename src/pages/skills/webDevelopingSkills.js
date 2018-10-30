@@ -24,7 +24,7 @@ const webDevelopingSkills = () => (
         </div>
       </div>
       <div>
-        <div>React Native</div>
+        <div>Scrum</div>
         <div>
           <PercCircle value={50} color='green' />
         </div>
