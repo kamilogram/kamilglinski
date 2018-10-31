@@ -1,4 +1,7 @@
 import React from 'react';
+import orbitals from '../../../images/orbitals.png';
+
+const IMG_TITLE = 'Screen z aplikacji do wyświetlania orbitali atomowych';
 
 const uwb1 = () => (
   <section className='withLeftHeader doubledHeader'>
@@ -19,6 +22,14 @@ const uwb1 = () => (
       <div>
         <div>czas trwania</div>
         <div>październik 2008 - lipiec 2011</div>
+      </div>
+      <div className='imagesWeb'>
+        <img
+          alt={IMG_TITLE}
+          title={IMG_TITLE}
+          className='image100'
+          src={orbitals}
+        />
       </div>
     </article>
   </section>

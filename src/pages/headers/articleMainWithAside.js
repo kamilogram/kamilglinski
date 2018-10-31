@@ -1,6 +1,6 @@
 import React from 'react';
-import ArticleMain from '../../pages/headers/articleMain.js';
-import AsideInside from '../../pages/headers/asideInside.js';
+import ArticleMain from '../../pages/headers/articleMain';
+import AsideInside from '../../pages/headers/asideInside';
 
 const articleMainWithAside = () => (
   <section className='withAside'>

@@ -11,29 +11,33 @@ const pbGames = () => (
         <div>
           <div>AhmedMan</div>
           <a
-            href="http://www.kamilglinski.pl/ahmedman"
-            target='_blank' rel='noopener noreferrer'
+            href="https://kamilogram.github.io/kamilglinski/apps/Ahmedman"
+            target='_blank'
+            rel='noopener noreferrer'
             title='Zobacz grę'
             className='imgAsLink'
           >
             <img
               className='image100 gamesImages'
               alt='Gra Ahmedman'
-              src={ahmedman} />
+              src={ahmedman}
+            />
           </a>
         </div>
         <div>
           <div>Galaxian</div>
           <a
-            href="http://www.kamilglinski.pl/galaxian"
-            target='_blank' rel='noopener noreferrer'
+            href="https://kamilogram.github.io/kamilglinski/apps/Galaxian"
+            target='_blank'
+            rel='noopener noreferrer'
             title='Zobacz stronę'
             className='imgAsLink'
           >
             <img
               alt='Gra Galaxian'
               className='image100 gamesImages'
-              src={galaxian} />
+              src={galaxian}
+            />
           </a>
         </div>
       </div>

@@ -12,19 +12,19 @@ const librarySkills = () => (
     <article>
       <header>biblioteki js</header>
       <div>
-        <span>flow</span>
-        <LineSlide value={80} />
-      </div>
-      <div>
         <span>lodash</span>
         <LineSlide value={70} />
       </div>
       <div>
-        <span>mori</span>
-        <LineSlide value={80} />
+        <span>jQuery</span>
+        <LineSlide value={50} />
       </div>
       <div>
-        <span>jQuery</span>
+        <span>mori</span>
+        <LineSlide value={70} />
+      </div>
+      <div>
+        <span>storybook</span>
         <LineSlide value={50} />
       </div>
     </article>

@@ -6,12 +6,15 @@ const asideInside = () => (
     <img
       className='asideImg'
       src={personPic}
-    alt='Kamil Gliński' />
+      alt='Kamil Gliński'
+    />
     <div className='dane'>
       <h6>Dane osobowe</h6>
       <div className='asideSection'>
         <div>e-mail</div>
-        <a href="mailto:glinski.kamil1985@gmail.com">glinski.kamil1985@gmail.com</a>
+        <a href="mailto:glinski.kamil1985@gmail.com">
+          glinski.kamil1985@gmail.com
+        </a>
       </div>
       <div className='asideSection'>
         <div>telefon</div>
@@ -19,7 +22,7 @@ const asideInside = () => (
       </div>
       <div className='asideSection'>
         <div>wiek</div>
-        <div>32</div>
+        <div>33</div>
       </div>
       <div className='asideSection'>
         <div>miasto</div>

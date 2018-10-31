@@ -9,17 +9,19 @@ const kamilograpp1 = () => (
         "Powiedz mi, a zapomnę, pokaż mi, a zapamiętam, pozwól mi zrobić, a zrozumiem…"
       </div>
       <div>
-        Wychodząc z tego słusznego twierdzenia Konfucjusza - od razu staram się wykorzystać w praktyce materiał jaki aktualnie przyswajam. Dlatego tworzę autorską aplikację, w tym przypadku do nauki nut na pianino. Z jednej strony chciałbym ją w przyszłości rozwinąć do poziomu "pokazania całemu światu", a z drugiej - służy mi właśnie jako poligon do praktycznego rozwoju swoich umiejętności.
+        Wychodząc z tego słusznego twierdzenia Konfucjusza - od razu staram się wykorzystać w praktyce materiał jaki aktualnie przyswajam. Dlatego w wolnym czasie tworzę autorską aplikację do nauki nut na pianino. Z jednej strony chciałbym ją w przyszłości rozwinąć do poziomu komercyjnego, a z drugiej - służy mi właśnie jako poligon do praktycznego rozwoju swoich umiejętności.
       </div>
       <div>
         <a
-          href="http://kamilograpp.pl/"
-          target={'_blank'}
-          title={'Kliknij Mnie'}>
-          <img
-            className='image100'
-            src={kamilograpp}
-          alt='Projekt KamilogrAPP'/>
+          href="https://kamilogram.github.io/kamilograpp/"
+          target='_blank'
+          rel='noopener noreferrer'
+          title='Otwórz https://kamilogram.github.io/kamilograpp/'>
+            <img
+              className='image100'
+              src={kamilograpp}
+              alt='Strona aplikacji KamilogrAPP'
+            />
         </a>
       </div>
     </article>

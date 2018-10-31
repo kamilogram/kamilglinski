@@ -36,8 +36,8 @@ const stepsData = {
     y: -1000,
   },
 
-  ngs: {
-    x: 13800,
+  nobo: {
+    x: 12900,
     y: -1700,
     z: -2200,
   },
@@ -48,13 +48,13 @@ const stepsData = {
     z: -2200,
   },
 
-  nobo: {
-    x: 12900,
+  togedo: {
+    x: 13800,
     y: -1700,
     z: -2200,
   },
 
-  togedo: {
+  shedul: {
     x: 14300,
     y: -450,
     z: -2200,

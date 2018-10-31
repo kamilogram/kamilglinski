@@ -17,18 +17,19 @@ const leon1 = () => (
 
       <div>
         <div>profil firmy</div>
-        <div>Stworzenie i rozwijanie zaawansowanej aplikacji webowej dedykowanej do zarządzania flotą lotniczą dla prywatnych operatorów.</div>
+        <div>Rozwijanie zaawansowanej aplikacji webowej do zarządzania flotą lotniczą dla prywatnych operatorów.</div>
       </div>
       <div>
         <div>wygląd aplikacji</div>
         <a
           href="https://www.youtube.com/watch?v=aW-wVByjLhk"
           target='_blank' rel='noopener noreferrer'
-        title='Kliknij Mnie'>
-          <img className='image80'
-            alt='Leon app view'
-            src={LeonAppView}
-          />
+          title='Kliknij Mnie'>
+            <img
+              className='image80'
+              alt='Wygląd aplikacji Leon'
+              src={LeonAppView}
+            />
         </a>
       </div>
     </article>

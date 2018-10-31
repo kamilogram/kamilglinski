@@ -14,12 +14,13 @@ const nobo2 = () => (
             <div>Strona Ewy Chodakowskiej</div>
             <a
               href="http://www.ewachodakowska.pl/"
-              target='_blank' rel='noopener noreferrer'
+              target='_blank'
+              rel='noopener noreferrer'
               title='Zobacz stronę'
-            className='imgAsLink'>
+              className='imgAsLink'>
               <img
                 className='image100'
-                alt='Ewa Chodakowska strona'
+                alt='Strona Ewy Chodakowskiej'
                 src={Ewa} />
             </a>
           </div>
@@ -29,7 +30,7 @@ const nobo2 = () => (
               href="http://www.abaplus.pl/"
               target='_blank' rel='noopener noreferrer'
               title='Zobacz stronę'
-            className='imgAsLink'>
+              className='imgAsLink'>
               <img
                 className='image100'
                 alt='Strona Aba Plus'
@@ -40,13 +41,14 @@ const nobo2 = () => (
             <div>Sklep Vogue</div>
             <a
               href="http://www.kiu.co/"
-              target='_blank' rel='noopener noreferrer'
+              target='_blank'
+              rel='noopener noreferrer'
               title='Zobacz stronę'
-            className='imgAsLink'>
-              <img
-                className='image100'
-                alt='sklep Q'
-                src={q} />
+              className='imgAsLink'>
+                <img
+                  className='image100'
+                  alt='sklep Q'
+                  src={q} />
             </a>
           </div>
         </div>

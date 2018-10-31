@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Ahmedman HTML5</title>
+    </head>
+    <body>
+        <canvas id="gra" width="1300" height="620"></canvas>
+        <!-- <canvas id="gra" width="1300" height="612"></canvas> -->
+        <script type="text/javascript">
+
+
+
+
+
+            /*
+            1 miejsce pojawienia sie wrogów
+            2 miejsce pojawienia się Ahmeda
+            3 ogień
+            4 nagroda
+            5 ufoki
+            6 bomba
+            7 drzwi
+            8 cegły
+            9 scianka
+            10 granica
+            */
+
+
+            //*****************************************************************************************************************************
+            // Zmienne globalne
+
+            //liczba elementów do pobrania
+            var doPobrania = 0;
+
+            var scianka = 36;
+            var czasGry = 0, ileCzasuDoWybuchu = 70, ileCzasuSamegoWyb = 10, zatrzymanyCzas = 0;
+            var czyOdliczac = true;
+            var krok = 6;
+
+            var zasieg = 2;
+            var ileZyc = 3;
+            var ileBomb = 2, ileBombTeraz = ileBomb;
+            var czyJestDetonator = false;
+            var bum = false;
+            var czasDetonacji = 0;
+            var drzwiXP = 0, drzwiYP = 0;
+
+            var punkty = 0;
+
+            var globalnyCzasDetonacji = 0;
+            var przelicznikPunktow = 0.1;
+
+            var gameOver = false;
+
+            var ctxMain = null;
+            var canvasBuffer;
+            var ctx = null;
+            var width = 0;
+            var height = 0;
+
+            //zmienne zalezne od levela
+            var ileWrogow = 3;
+            var ileCegiel = 50;
+            var czyZdetonowany = false;
+            var poziom = 1;
+
+            //elementy graficzne
+            var tlo, graczL1, graczL2, graczP1, graczP2, sciana, granica, cegly, bombaIkonka, wrogL, wrogP;
+            var enemyDead1, enemyDead2, enemyDead3;
+            var bombaNagroda, bombaNagroda2, ogienNagroda, zycieNagroda, detonatorNagroda, bezNagrody;
+            var wybuch, drzwi;
+            var killedAhmed1, killedAhmed2, killedAhmed3;       //TODO załadować je do jednej tablicy
+            var level, gameOver;
+
+
+
+            //*****************************************************************************************************************************
+            //struktura danych
+            var plansza = new Array(31);
+            for (var i = 0; i < plansza.length; i++) {
+                plansza[i] = new Array(17);
+                for (var j = 0; j < plansza[i].length; j++) {
+                    if (i == 0 || j == 0 || i == plansza.length - 1 || j == plansza[i].length - 1) plansza[i][j] = 10;
+                    else if (i % 2 == 0 && j % 2 == 0) plansza[i][j] = 9;
+                    else plansza[i][j] = 0;
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Zmienne i funkcje dotyczące Ahmeda
+
+            var gracz;
+
+            var Ahmed = function (x, y) {
+                this.XTabl = x;
+                this.XPlan = x * scianka;
+                this.LicznikX = 0;
+                this.YTabl = y;
+                this.YPlan = y * scianka;
+                this.LicznikY = 0;
+
+                this.strataZycia = false;
+                this.kierunek = 'L'
+
+                this.chwilaPojawienia = 0;
+                this.chwilaStraty = 0;
+                this.czyMiga = false;
+
+                this.pole;
+
+                this.WyczyscPoleWokolAhmeda = function () {
+                    for (var i = -8; i < 9; i++) {      ////od tego ... ghghghgh
+                        if (this.XTabl + i < 25 && plansza[Math.abs(this.XTabl + i)][this.YTabl] != 10) plansza[Math.abs(this.XTabl + i)][this.YTabl] = 2;
+                        if (plansza[this.XTabl][Math.abs(this.YTabl + i)] != 10 && this.YTabl + i < 17) plansza[this.XTabl][Math.abs(this.YTabl + i)] = 2;
+                    }
+                }
+
+
+                this.aktualizujPolozenie = function () {
+                    this.pole = [plansza[this.XTabl][this.YTabl],    //0
+                                plansza[this.XTabl - 1][this.YTabl], //1
+                                plansza[this.XTabl + 1][this.YTabl], //2
+                                plansza[this.XTabl][this.YTabl - 1], //3
+                                plansza[this.XTabl][this.YTabl + 1], //4
+                                plansza[this.XTabl - 1][this.YTabl + 1], //5
+                                plansza[this.XTabl + 1][this.YTabl + 1], //6
+                                plansza[this.XTabl + 1][this.YTabl - 1]]; //7
+                }
+
+                this.idz = function (kier, xp, yp, wymiar, war1) {
+                    this.kierunek = kier;
+                    this.XPlan += xp * krok;
+                    this.YPlan += yp * krok;
+                    if (wymiar == 'poz') {
+                        if (this.LicznikX == war1) { this.LicznikX = 5 - war1; this.XTabl += (xp + yp); } else this.LicznikX += (xp + yp);
+                        if (this.LicznikY == 5) { this.YPlan += krok; this.YTabl++; this.LicznikY = 0; }
+                        else if (this.LicznikY == 1) { this.YPlan -= krok; this.LicznikY = 0; }
+                    }
+                    else {
+                        if (this.LicznikY == war1) { this.LicznikY = 5 - war1; this.YTabl += (xp + yp); } else this.LicznikY += (xp + yp);
+                        if (this.LicznikX == 5) { this.XPlan += krok; this.XTabl++; this.LicznikX = 0; }
+                        else if (this.LicznikX == 1) { this.XPlan -= krok; this.LicznikX = 0; }
+                    }
+                }
+
+                this.PoruszajWlewo = function () {
+                    this.aktualizujPolozenie();
+                    if ((this.LicznikX > 0 && this.pole[0] < 8) || (this.LicznikY < 2 && this.pole[1] < 8) || (this.LicznikY == 5 && this.pole[5] < 8))
+                        this.idz('L', -1, 0, 'poz', 0);
+                }
+
+
+                this.PoruszajWprawo = function () {
+                    this.aktualizujPolozenie();
+                    if ((this.LicznikY > 4 && this.pole[6] < 8) || (this.LicznikY < 2 && this.pole[2] < 8))
+                        this.idz('P', 1, 0, 'poz', 5);
+                }
+
+                this.PoruszajWgore = function () {
+                    this.aktualizujPolozenie();
+                    if ((this.LicznikX < 2 && this.pole[3] < 8) || (this.LicznikX == 5 && this.pole[7] < 8) || (this.LicznikY > 0 && this.pole[0] < 8))
+                        this.idz(this.kierunek, 0, -1, 'pio', 0);
+                }
+
+                this.PoruszajWdol = function () {
+                    this.aktualizujPolozenie();
+                    if ((this.LicznikX < 2 && this.pole[4] < 8) || (this.LicznikX > 4 && this.pole[6] < 8))
+                        this.idz(this.kierunek, 0, 1, 'pio', 5);
+                }
+
+                this.PodlozBombe = function () {
+                    var zmX = this.XTabl + (this.LicznikX > 2 ? 1 : 0);
+                    var zmY = this.YTabl + (this.LicznikY > 2 ? 1 : 0);
+                    if (ileBombTeraz > 0 && bum == false) {
+                        bomby.push(new Bomba(zmX, zmY));
+                        ileBombTeraz--;
+
+                        plansza[zmX][zmY] = 6;
+                        wybuchy.push(new Wybuchy(zmX, zmY, zasieg, czasGry));
+                    }
+                }
+
+                this.Rysuj = function () {
+                    if (this.strataZycia == false) {
+                        if (czasGry % 10 < 5) {
+                            if (this.kierunek == 'L') ctx.drawImage(graczL1, this.XPlan, this.YPlan);
+                            else ctx.drawImage(graczP1, this.XPlan, this.YPlan);
+                        }
+                        else if (czasGry % 10 >= 5 && this.czyMiga == false) {
+                            if (this.kierunek == 'L') ctx.drawImage(graczL2, this.XPlan, this.YPlan);
+                            else ctx.drawImage(graczP1, this.XPlan, this.YPlan);
+                        }
+                        if (czasGry - this.chwilaPojawienia > 90 && this.czyMiga == true) this.czyMiga = false;
+                    }
+                }
+
+                this.SprawdzCzyBezpieczny = function () {
+                    if ((plansza[this.XTabl][this.YTabl] == 3 || plansza[this.XTabl][this.YTabl] == 5) && this.czyMiga == false) {
+                        if (this.strataZycia == false) this.chwilaStraty = czasGry;
+                        this.strataZycia = true;
+                    }
+                    if (this.strataZycia == true) {
+                        this.AnimujStrateZycia(this.XPlan, this.YPlan);
+                    }
+                }
+
+                this.AnimujStrateZycia = function (x, y) {
+                    zasieg = 2;
+                    ileBomb = 2;
+                    czyJestDetonator = false;
+                    var t = czasGry - this.chwilaStraty;
+                    document.removeEventListener("keydown", KeyDown, false);
+                    if (t < 15) ctx.drawImage(killedAhmed1, x, y);
+                    else if (t < 30) ctx.drawImage(killedAhmed2, x, y);
+                    else if (t < 45) ctx.drawImage(killedAhmed3, x, y);
+                    else if (t == 60) this.PrzywrocZycie();
+                }
+
+                this.PrzywrocZycie = function () {
+                    ileZyc--;
+                    document.addEventListener("keydown", KeyDown, false);
+                    this.strataZycia = false;
+                    this.chwilaPojawienia = czasGry;
+                    this.czyMiga = true;
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            // Zmienne i funkcje dotyczące wrogów
+            var wrog = new Array();
+
+            var Wrog = function (x, y, nagroda) {
+                this.X = x;
+                this.Y = y;
+
+                this.XTabl = x;
+                this.XPlan = x * scianka;
+                this.LicznikX = 0;
+                this.YTabl = y;
+                this.YPlan = y * scianka;
+                this.LicznikY = 0;
+
+                this.losujemy = 0;
+                this.ZmiennaX = 1;
+                this.ZmiennaY = 0;
+                this.Nagroda = nagroda;
+
+                this.Skrecanie = [];
+                this.zapetlilSie = false;
+
+
+                this.IterujLicznik = function () {
+                    this.LicznikX += this.ZmiennaX;
+                    if (this.LicznikX == -1) { this.LicznikX = 5; this.XTabl -= 1; }
+                    else if (this.LicznikX == 6) { this.LicznikX = 0; this.XTabl += 1; }
+
+                    this.LicznikY += this.ZmiennaY;
+                    if (this.LicznikY == -1) { this.LicznikY = 5; this.YTabl -= 1; }
+                    else if (this.LicznikY == 6) { this.LicznikY = 0; this.YTabl += 1; }
+                }
+
+                this.MozliweRuchy = function () {
+                    var p0 = plansza[this.XTabl + this.ZmiennaX][this.YTabl + this.ZmiennaY];
+                    var zmX = this.XTabl;
+                    var zmY = this.YTabl;
+                    if (p0 < 5 && this.zapetlilSie == false) {
+                        for (var j = 0; j < 4; j++) this.Skrecanie.push('prosto');
+                    }
+                    if (this.ZmiennaY == 0) {
+                        if (plansza[zmX][zmY - 1] < 5) this.Skrecanie.push('gora');
+                        if (plansza[zmX][zmY + 1] < 5) this.Skrecanie.push('dol');
+                    }
+                    else {
+                        if (plansza[zmX - 1][zmY] < 5) this.Skrecanie.push('lewo');
+                        if (plansza[zmX + 1][zmY] < 5) this.Skrecanie.push('prawo');
+                    }
+                    if (p0 > 4 && this.Skrecanie.length == 0) {
+                        this.Skrecanie.push('zawroc');
+                        this.zapetlilSie = true;
+                    }
+                }
+
+                this.Zakrec = function () {
+                    var jakDalej = Math.floor(Math.random() * this.Skrecanie.length);
+                    var Skr = this.Skrecanie[jakDalej];
+                    if (Skr == 'zawroc') { this.ZmiennaX *= -1; this.ZmiennaY *= -1; }
+                    else if (Skr == 'gora') { this.ZmiennaX = 0; this.ZmiennaY = -1; this.zapetlilSie = false; }
+                    else if (Skr == 'dol') { this.ZmiennaX = 0; this.ZmiennaY = 1; this.zapetlilSie = false; }
+                    else if (Skr == 'lewo') { this.ZmiennaX = -1; this.ZmiennaY = 0; this.zapetlilSie = false; }
+                    else if (Skr == 'prawo') { this.ZmiennaX = 1; this.ZmiennaY = 0; this.zapetlilSie = false; }
+                }
+
+                this.OznaczWtablicyObecnoscWroga = function () {
+                    var sprytnaZmienna = [0, 0, 5];
+                    var zmX = this.XTabl;
+                    var zmY = this.YTabl;
+                    var LX = this.LicznikX;
+                    var LY = this.LicznikY;
+                    if (LX == 1) plansza[zmX + 1][zmY] = sprytnaZmienna[this.ZmiennaX + 1];
+                    else if (LX == 5) plansza[zmX][zmY] = sprytnaZmienna[1 - this.ZmiennaX];
+                    if (LY == 1) plansza[zmX][zmY + 1] = sprytnaZmienna[this.ZmiennaY + 1];
+                    else if (LY == 5) plansza[zmX][zmY] = sprytnaZmienna[1 - this.ZmiennaY];
+                }
+
+                this.WyzerujMozliweRuchy = function () {
+                    this.Skrecanie.splice(0);
+                }
+
+                this.DecydujCzySkrecic = function () {
+                    if (this.LicznikX == 0 && this.LicznikY == 0) {
+                        this.MozliweRuchy();
+                        this.Zakrec();
+                    }
+                    else if (this.Skrecanie.length > 0) this.WyzerujMozliweRuchy();
+                }
+
+                this.NadajPredkosc = function () {
+                    this.XPlan += 6 * this.ZmiennaX;
+                    this.YPlan += 6 * this.ZmiennaY;
+                }
+
+                this.Rysuj = function () {
+                    if ((czasGry + 2) % 20 < 10) ctx.drawImage(wrogL, this.XPlan, this.YPlan);
+                    else ctx.drawImage(wrogP, this.XPlan, this.YPlan);
+                }
+
+                this.UsunTrafionegoWroga = function (i) {
+                    zniszczonyWrog.push(new ZniszczonyWrog(this.XTabl, this.YTabl, this.XPlan, this.YPlan, czasGry, this.Nagroda));
+                    wrog.splice(i, 1);
+                    //i--;
+                    punkty += 100;
+                }
+            }
+
+            //****************************************************************************************************************************
+            //Funkcje dotyczące przejścia do następnego etapu
+
+            function NastepnaPlansza() {
+                document.removeEventListener("keydown", KeyDown, false);
+                czyOdliczac = false;
+                zatrzymanyCzas++;
+                Wyczysc();
+                ctx.clearRect(0, 0, width, height);
+                ctx.drawImage(level, 0, 0);
+                Czcionka('start');
+                ctx.fillText("Poziom " + (poziom + 1), 490, 370);
+                if (zatrzymanyCzas == 30) {
+                    czyOdliczac = true;
+                    zatrzymanyCzas = 0;
+                    ileWrogow++;
+                    ileCegiel += 10;
+                    StworzAhmeda();
+                    StworzWrogow(ileWrogow);
+                    StworzCegly(ileCegiel);
+                    przelicznikPunktow += 0.04
+                    poziom++;
+                    document.addEventListener("keydown", KeyDown, false);
+                }
+            }
+
+            function Wyczysc() {
+                for (var i = 0; i < bomby.length; i++) {
+                    bomby[i].Usun(i);
+                }
+                wybuchy.splice(0);
+                nagrody.splice(0);
+                zniszczonyWrog.splice(0);
+                punktyDoWysw.splice(0);
+                for (var i = 0; i < plansza.length; i++) {
+                    for (var j = 0; j < plansza[i].length; j++) {
+                        if (i == 0 || j == 0 || i == plansza.length - 1 || j == plansza[i].length - 1) plansza[i][j] = 10;
+                        else if (i % 2 == 0 && j % 2 == 0) plansza[i][j] = 9;
+                        else plansza[i][j] = 0;
+                    }
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            // Zmienne i funkcje dotyczące bomb
+            var bomby = new Array();
+            var Bomba = function (x, y) {
+                this.X = x;
+                this.Y = y;
+                this.T = czasGry;
+
+                this.Usun = function (i) {
+                    bomby.splice(i, 1);
+                    //i--;
+                    ileBombTeraz++;
+                }
+
+                this.Rysuj = function () {
+                    ctx.drawImage(bombaIkonka, this.X * scianka, this.Y * scianka);
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Zmienne i funkcje dotyczące animacji zniszczonych wrogów
+
+            var zniszczonyWrog = new Array();
+
+            var ZniszczonyWrog = function (xT, yT, xP, yP, czasStart, bonus) {
+                this.XP = xP;
+                this.YP = yP;
+                this.XT = xT;
+                this.YT = yT;
+                this.czas = czasStart;
+                this.Bonus;
+                if (bonus == 1) this.Bonus = bombaNagroda;
+                else if (bonus == 2) this.Bonus = ogienNagroda;
+                else if (bonus == 3) this.Bonus = zycieNagroda; //TODO switch
+                else if (bonus == 4 && czyJestDetonator == false) this.Bonus = detonatorNagroda;
+                else this.Bonus = bezNagrody;
+
+                this.Etap1 = function () {
+                    ctx.drawImage(enemyDead1, this.XP, this.YP);
+                }
+
+                this.Etap2 = function () {
+                    ctx.drawImage(enemyDead2, this.XP, this.YP);
+                }
+
+                this.Etap3 = function () {
+                    nagrody.push(new Nagrody(this.XT, this.YT, this.Bonus, czasGry));
+                    punktyDoWysw.push(new PunktyDoWysw(this.XP, this.YP + 20, Math.round(100 * przelicznikPunktow) * 10));
+
+                    for (var j = -1; j < 2; j++) {
+                        if (plansza[this.XT + j][this.YT] == 5) plansza[this.XT + j][this.YT] = 0;
+                        if (plansza[this.XT][this.YT + j] == 5) plansza[this.XT][this.YT + j] = 0;
+                    }
+                }
+
+                this.KoniecAnimacji = function (i) {
+                    zniszczonyWrog.splice(i, 1);
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Zmienne i funkcje dotyczące wyświetlania punktów
+
+            var punktyDoWysw = new Array();
+
+            var PunktyDoWysw = function (x, y, ile) {
+                this.X = x;
+                this.Y = y;
+                this.Ile = ile;
+                this.Wysokosc = 0;
+            }
+
+            //*****************************************************************************************************************************
+            //Zmienne i funkcje dotyczące wyświetlania nagród
+
+            var nagrody = new Array();
+
+            var Nagrody = function (x, y, jaka, czas) {
+                this.X = x;
+                this.Y = y;
+                this.Jaka = jaka;
+                this.Czas = czas;
+
+                this.Rysuj = function () {
+                    var ruchy = czasGry % 27;
+                    ctx.drawImage(this.Jaka, (this.X * scianka) + 8, (this.Y * scianka) + 8 + (ruchy < 15 ? ruchy - 7 : 21 - ruchy));
+                    plansza[this.X][this.Y] = 4;
+                }
+
+                this.czyUsunac = function (i) {
+                    if (gracz.XTabl == this.X && gracz.YTabl == this.Y) {
+                        this.PrzyznajNagrode();
+                        this.Usun(i);
+                    }
+                    if ((czyJestDetonator == true && this.Jaka == detonatorNagroda) || czasGry - this.Czas == 150) {
+                        this.Usun(i);
+                    }
+                }
+
+                this.PrzyznajNagrode = function () {
+                    plansza[this.X][this.Y] = 0;
+                    Nagradzamy(this.Jaka);
+                }
+
+                this.Usun = function (i) {
+                    nagrody.splice(i, 1);
+                }
+            }
+
+            function Nagradzamy(jakaNagroda) {
+                switch (jakaNagroda) {
+                    case ogienNagroda: dajBonus(40); zasieg++; break;
+                    case bombaNagroda: dajBonus(70); { ileBomb++; ileBombTeraz++ } break;
+                    case zycieNagroda: dajBonus(150); ileZyc++; break;
+                    case detonatorNagroda: dajBonus(200); czyJestDetonator = true; break;
+                }
+            }
+
+            function dajBonus(ilePunktow) {
+                var zaokroglone = Math.round(ilePunktow * przelicznikPunktow) * 10;
+                punkty += zaokroglone;
+                punktyDoWysw.push(new PunktyDoWysw(gracz.XPlan, gracz.YPlan, zaokroglone));
+            }
+
+
+            //*****************************************************************************************************************************
+            //Zmienne i funkcje dotyczące wyświetlania wybuchów
+
+            var wybuchy = new Array();
+
+            var Wybuchy = function (x, y, zasiegi, czasZamontowania) {
+                this.X = x;
+                this.Y = y;
+                this.Zasiegi = zasiegi;
+                this.CzasZ = czasZamontowania;
+                this.JakDaleko = new Array(0, 0, 0, 0);  //lewo, prawo, góra, dół
+
+                this.WyliczZasieg = function () {
+                    this.SprawdzRodzajPrzeszk(0, -1, 0, this.X, 0);
+                    this.SprawdzRodzajPrzeszk(1, 1, 0, this.X, 30);
+                    this.SprawdzRodzajPrzeszk(2, 0, -1, this.Y, 0);
+                    this.SprawdzRodzajPrzeszk(3, 0, 1, this.Y, 16);
+                }
+
+                this.SprawdzRodzajPrzeszk = function (oznStrony, xJ, yJ, warunekL, warunekP) {
+                    var pX, pY, pl;
+                    for (var j = 1; j <= this.Zasiegi; j++) {
+                        pX = this.X + xJ * j;
+                        pY = this.Y + yJ * j;
+                        pl = plansza[pX][pY];
+                        if (warunekL + (xJ + yJ) * j == warunekP) break;
+                        if (pl == 9) break;
+                        if (pl < 9) this.JakDaleko[oznStrony]++;
+                        if (pl == 8) break;
+                    }
+                }
+
+                this.Wybuchaj = function (etap) {
+                    ctx.drawImage(wybuch, this.X * scianka, this.Y * scianka);
+                    plansza[this.X][this.Y] = 3 - (etap - 1) * 3;
+                    this.jakDalekoWtaStrone(0, -1, 0, etap);
+                    this.jakDalekoWtaStrone(1, 1, 0, etap);
+                    this.jakDalekoWtaStrone(2, 0, -1, etap);
+                    this.jakDalekoWtaStrone(3, 0, 1, etap);
+                }
+
+                this.jakDalekoWtaStrone = function (oznStrony, znakX, znakY, etap) {
+                    var pX, pY;
+                    for (var j = 1; j <= this.JakDaleko[oznStrony]; j++) {
+                        pX = this.X + j * znakX;
+                        pY = this.Y + j * znakY;
+                        ctx.drawImage(wybuch, pX * scianka, pY * scianka);
+                        plansza[pX][pY] = (plansza[pX][pY] == 10 ? 10 : 3 - (etap - 1) * 3);
+                    }
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Funkcja wykonywana po uruchomieniu strony
+
+            window.addEventListener("load", function () {
+                // Sprawdź, czy przeglądarka obsługuje element Canvas
+                var canvas = document.getElementById('gra');
+                if (!canvas.getContext) { return; }
+                ctxMain = canvas.getContext('2d');
+                width = canvas.width;
+                height = canvas.height;
+
+                // Dodaj bufor dla elementu canvas
+                canvasBuffer = document.createElement('canvas');
+                canvasBuffer.width = width;
+                canvasBuffer.height = height;
+                ctx = canvasBuffer.getContext('2d');
+
+                PobierzZasoby();
+                StworzAhmeda();
+                StworzWrogow(ileWrogow);
+                StworzCegly(ileCegiel);
+
+                // Nasłuchiwanie  klawiatury
+                document.addEventListener("keydown", KeyDown, false);
+            }, false);
+
+
+
+            //*****************************************************************************************************************************
+            //Funkcje dotyczące początkowego jednorazowego stworzenia składników gry
+
+            function StworzAhmeda() {
+                var x = Math.floor(Math.random() * 15) * 2 + 1;
+                var y = Math.floor(Math.random() * 8) * 2 + 1;
+                gracz = new Ahmed(x, y);
+                gracz.WyczyscPoleWokolAhmeda();
+            }
+
+            function StworzWrogow(iloscWrogow) {
+                for (var i = 0; i < iloscWrogow; i ++) {
+                    var Xpocz, Ypocz;
+                    do {
+                        Xpocz = Math.floor(Math.random() * 15) * 2 + 1;
+                        Ypocz = Math.floor(Math.random() * 8) * 2 + 1;
+                    } while (plansza[Xpocz][Ypocz] == 2);
+
+                    var coDaje = Math.ceil(Math.random() * 6);
+                    wrog.push(new Wrog(Xpocz, Ypocz, coDaje));
+                    for (var k = -1; k < 2; k++) {
+                        if (plansza[Math.abs(Xpocz + k)][Ypocz] != 10) plansza[Math.abs(Xpocz + k)][Ypocz] = 1;
+                        if (plansza[Xpocz][Math.abs(Ypocz + k)] != 10) plansza[Xpocz][Math.abs(Ypocz + k)] = 1;
+                    }
+                }
+            }
+
+            function StworzCegly(ileCegiel) {
+                var i = 0;
+                var tamDrzwi = Math.floor(Math.random() * ileCegiel);
+                while (i < ileCegiel) {
+                    var losX = Math.floor(Math.random() * 30);
+                    var losY = Math.floor(Math.random() * 16);
+                    if (plansza[losX][losY] == 0) {
+                        plansza[losX][losY] = 8;
+                        if (i == tamDrzwi) {
+                            drzwiXP = losX;
+                            drzwiYP = losY;
+                        }
+
+                        i++;
+                    }
+                }
+            }
+
+
+
+            //*****************************************************************************************************************************
+            // Funkcja pobierająca zasoby
+
+            function PobierzZasoby() {
+                tlo = LadujObrazek('Images/tlo.png');
+                graczP1 = LadujObrazek('Images/graczP1.png');
+                graczP2 = LadujObrazek('Images/graczP2.png');
+                graczL1 = LadujObrazek('Images/graczL1.png');
+                graczL2 = LadujObrazek('Images/graczL2.png');
+                wrogL = LadujObrazek('Images/peanutL.png');
+                wrogP = LadujObrazek('Images/peanutP.png');
+                sciana = LadujObrazek('Images/sciana.png');
+                granica = LadujObrazek('Images/granica.png');
+                cegly = LadujObrazek('Images/cegly.png');
+                bombaIkonka = LadujObrazek('Images/bomba.png');
+                wybuch = LadujObrazek('Images/wybuch.png');
+
+                enemyDead1 = LadujObrazek('Images/peanutDead1.png');
+                enemyDead2 = LadujObrazek('Images/peanutDead2.png');
+                bombaNagroda = LadujObrazek('Images/bombaBonus.png');
+                bombaNagroda2 = LadujObrazek('Images/bombaBonus2.png');
+                ogienNagroda = LadujObrazek('Images/ogienBonus.png');
+                zycieNagroda = LadujObrazek('Images/zycieBonus.png');
+                detonatorNagroda = LadujObrazek('Images/detonatorBonus.png');
+                bezNagrody = LadujObrazek('Images/nic.png');
+                drzwi = LadujObrazek('Images/drzwi.png');
+
+                killedAhmed1 = LadujObrazek('Images/graczDead1.png');
+                killedAhmed2 = LadujObrazek('Images/graczDead2.png');
+                killedAhmed3 = LadujObrazek('Images/graczDead3.png');
+
+                level = LadujObrazek('Images/level.png');
+                gameOver = LadujObrazek('Images/gameOver.png');
+
+
+                setTimeout(checkLoad, 100);
+            }
+
+            function LadujObrazek(sciezka) {
+                doPobrania++;
+                var v = new Image();
+                v.src = sciezka;
+                v.addEventListener("load", function () { doPobrania--; }, false);
+                return v;
+            }
+
+            function checkLoad() {
+                if (doPobrania == 0) {
+                    setInterval(RysujGre, 1000 / 20);
+                }
+                else {
+                    setTimeout(checkLoad, 100);
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            // Funkcje wykonywane cyklicznie po każdorazowym interwale czasu
+
+            function RysujGre() {
+                if (czyOdliczac == true) czasGry++;
+                ctx.clearRect(0, 0, width, height);
+                if (ileZyc > 0) {
+
+                    RysujPlansze();
+                    Animuj();
+                    gracz.SprawdzCzyBezpieczny();
+                    if (plansza[drzwiXP][drzwiYP] != 8) plansza[drzwiXP][drzwiYP] = 7;
+                    if (plansza[gracz.XTabl][gracz.YTabl] == 7 && gracz.LicznikX == 0 && gracz.LicznikY == 0 && wrog.length == 0) NastepnaPlansza();
+
+                    // Prześlij bufor na element canvas
+                    ctxMain.drawImage(canvasBuffer, 0, 0);
+
+                    if (czyOdliczac == true) WyswietlajNapisy();
+                }
+                else ZakonczGre();
+
+            }
+
+            function RysujPlansze() {
+                ctx.drawImage(tlo, 0, 0);
+                var x, y;
+                for (var i = 0; i < plansza.length; i++) {
+                    x = i * scianka;
+                    for (var j = 0; j < plansza.length; j++) {
+                        y = j * scianka;
+                        switch (plansza[i][j]) {
+                            case 9:     ctx.drawImage(sciana, x, y);    break;
+                            case 8:     ctx.drawImage(cegly, x, y);     break;
+                            case 10:    ctx.drawImage(granica, x, y);   break;
+                            case 7:     ctx.drawImage(drzwi, x, y);     break;
+                        }
+                    }
+                }
+            }
+
+            function Animuj() {
+
+                if (wrog.length > 0) AnimacjaWroga();
+                if (bomby.length > 0) AnimacjaBomb();
+                if (zniszczonyWrog.length > 0) AnimacjaZniknieciaWroga();
+                if (nagrody.length > 0) AnimacjaNagrod();
+                if (wybuchy.length > 0) AnimacjaWybuchu();
+                if (punktyDoWysw.length > 0) AnimacjaPunktow();
+                gracz.Rysuj();
+            }
+
+
+            //************************************************************************************************************************
+            //Funkcje dotyczące animowania gry
+
+            function AnimacjaWroga() {
+                var w;
+                for (var i = 0; i < wrog.length; i++) {
+                    w = wrog[i];
+                    w.DecydujCzySkrecic();
+                    w.IterujLicznik();
+                    w.NadajPredkosc();
+                    w.OznaczWtablicyObecnoscWroga();
+                    w.Rysuj();
+                    if (plansza[w.XTabl][w.YTabl] == 3) {
+                        w.UsunTrafionegoWroga(i);
+                        i--
+                    }
+                }
+            }
+
+            function AnimacjaBomb() {
+                for (var i = 0; i < bomby.length; i++) {
+                    bomby[i].Rysuj();
+                    if (czasGry - bomby[i].T == ileCzasuDoWybuchu && czyJestDetonator == false) bomby[i].Usun(i);
+                    if (czyJestDetonator == true && bum == true) {
+                        bomby[i].Usun(i);
+                        if (czasGry - czasDetonacji < ileCzasuSamegoWyb)
+                            wybuchy[i].Wybuchaj(1);
+                        else if (czasGry - czasDetonacji == ileCzasuSamegoWyb) {
+                            Zgas(i, wybuchy[i]);
+                            i--;
+                        }
+                    }
+                }
+            }
+
+            function AnimacjaZniknieciaWroga() {
+                for (var i = 0; i < zniszczonyWrog.length; i++) {
+                    var zW = zniszczonyWrog[i];
+                    if (czasGry - zW.czas > 0 && czasGry - zW.czas < 20) zW.Etap1();
+                    else if (czasGry - zW.czas > 0 && czasGry - zW.czas < 40) zW.Etap2();
+                    else if (czasGry - zW.czas >= 40) {
+                        zW.Etap3();
+                        zW.KoniecAnimacji(i);
+                        i--;
+                    }
+                }
+            }
+
+            function AnimacjaPunktow() {
+                for (var i = 0; i < punktyDoWysw.length; i++) {
+                    Czcionka('punkty');
+                    var pkt = punktyDoWysw[i];
+                    czasGry % 20 < 15 ? ctx.fillText(pkt.Ile, pkt.X, pkt.Y - pkt.Wysokosc / 2) : "";
+                    pkt.Wysokosc++;
+                    if (pkt.Wysokosc == 50) {
+                        punktyDoWysw.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+
+            function AnimacjaNagrod() {
+                for (var i = 0; i < nagrody.length; i++) {
+                    nagrody[i].Rysuj();
+                    nagrody[i].czyUsunac(i);
+                }
+            }
+
+            function AnimacjaWybuchu() {
+                var t = ileCzasuDoWybuchu + ileCzasuSamegoWyb;
+                var t1, w;
+                if (czyJestDetonator == false) {
+                    for (var i = 0; i < wybuchy.length; i++) {
+                        w = wybuchy[i];
+                        t1 = czasGry - w.CzasZ;
+                        if (t1 == ileCzasuDoWybuchu) w.WyliczZasieg();
+                        if (t1 > ileCzasuDoWybuchu && t1 < t) w.Wybuchaj(1);
+                        else if (t1 == t) {
+                            Zgas(i, w);
+                            i--;
+                        }
+                    }
+                }
+                else if (bum == true) {
+                    for (var i = 0; i < wybuchy.length; i++) wybuchy[i].Wybuchaj(1);
+                    if (czasGry - globalnyCzasDetonacji == t) {
+                        ZgasWszystkie();
+                        czyZdetonowany = false;
+                        bum = false;
+                    }
+                }
+            }
+
+
+
+            //*****************************************************************************************************************************
+            //Funkcja dotycząca obsługi klawiatury
+
+            function KeyDown(e) {
+
+                switch (e.keyCode) {    //klaw
+                    case 37:    gracz.PoruszajWlewo();  break;
+                    case 39:    gracz.PoruszajWprawo(); break;
+                    case 40:    gracz.PoruszajWdol();   break;
+                    case 38:    gracz.PoruszajWgore();  break;
+                    case 32:    gracz.PodlozBombe();    break;
+                    case 46:    Detonacja(); break;
+
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Funkcje dotyczące rysowania danych na dole planszy
+
+            function WyswietlajNapisy() {
+                //Czcionka ('wartosciDoBadania');
+                //PokazWartosciTablicy();
+                //PokazBadaneWartosci(bum, drzwiXP, drzwiYP, ileCegiel, ileWrogow);
+
+                //dolne Napisy
+                Czcionka ('punktyNaDole');
+                ctxMain.fillText("Punkty:", 1130, 50);
+                ctxMain.fillText(punkty, 1230, 50);
+
+                Czcionka('inneOpisyNaDole');
+                Itemy('Życie', ileZyc, zycieNagroda, 1130, 100, 25);
+                Itemy('Pole rażenia', zasieg, ogienNagroda, 1130, 150, 22);
+                Itemy('', ileBomb, bombaNagroda2, 1130, 200, 25);
+                Itemy('Bomby do wysadzenia', ileBombTeraz, bombaNagroda, 1130, 200, 25);
+                Itemy('Detonator', czyJestDetonator?1:0, detonatorNagroda, 1130, 250, 45);
+
+                Czcionka ('punktyNaDole');
+                ctxMain.fillText("Sterowanie:", 1130, 350);
+                ctxMain.fillText("strzałki -", 1130, 390);
+                ctxMain.fillText("poruszanie się", 1130, 410);
+                ctxMain.fillText("spacja -", 1130, 450);
+                ctxMain.fillText("podkładanie bomby", 1130, 470);
+            }
+
+            function Itemy(napis, zmienna, ikonka, x, y, szerokoscIkonki) {
+                ctxMain.fillText(napis, x, y);
+                for (var i = 0; i < (zmienna); i++) {
+                    ctxMain.drawImage(ikonka, x - 5 + szerokoscIkonki * i, y);
+                }
+            }
+
+
+            //*****************************************************************************************************************************
+            //Pozostałe funkcje
+
+
+            function Detonacja() {
+                if (bomby.length > 0 && czyZdetonowany == false && bum == false && czyJestDetonator == true) {
+                    czyZdetonowany = true;
+                    for (var i = 0; i < wybuchy.length; i++) {
+                        wybuchy[i].WyliczZasieg();
+                    }
+                    globalnyCzasDetonacji = czasGry - ileCzasuDoWybuchu + 1;
+                    bum = true;
+                    bomby.Usun(0);
+                }
+            }
+
+            function Zgas(i, w) {
+                w.Wybuchaj(2);
+                wybuchy.splice(i, 1);
+            }
+
+            function ZgasWszystkie() {
+                for (var i = 0; i < wybuchy.length; i++) {
+                    Zgas(i, wybuchy[i]);
+                    i--;
+                }
+                bum = false;
+            }
+
+            function ZakonczGre() {
+                ctxMain.fillStyle = '#000000';
+                ctxMain.fillRect(0, 0, width, height);
+                ctxMain.drawImage(gameOver, 0, 0);
+                Czcionka('planszaCiemny');
+                ctxMain.fillText("Game Over", 625, 240);
+                Czcionka('planszaJasny');
+                ctxMain.fillText("Punkty:", 400, 400);
+                ctxMain.fillText(punkty, 550, 400);
+                Czcionka('inneOpisyNaDole');
+                ctxMain.fillText("Aby zagrać jeszcze raz, kliknij F5", width / 2 - 190, height / 2 + 200);
+            }
+
+
+            function Czcionka(doCzego) {
+                switch (doCzego) {
+                    case 'start':
+                        ctx.fillStyle = 'rgb(150,25,25)';
+                        ctx.font = "bold 2.8em Quartz MS";
+                        break;
+                    case 'punkty':
+                        ctx.fillStyle = 'rgb(255,242,0)';
+                        ctx.font = "bold 1.8em Quartz MS";
+                        break;
+                    case 'punktyNaDole':
+                        ctxMain.fillStyle = 'rgb(255,255,255)';
+                        ctxMain.font = "bold 1.2em Quartz MS";
+                        break;
+                    case 'wartosciDoBadania':
+                        ctxMain.fillStyle = 'rgb(255,255,255)';
+                        ctxMain.font = "1.2em sans serif";
+                        break;
+                    case 'inneOpisyNaDole':
+                        ctxMain.fillStyle = 'rgb(255,255,255)';
+                        ctxMain.font = "bold 0.8em Quartz MS";
+                        break;
+                    case 'planszaCiemny':
+                        ctxMain.fillStyle = 'rgb(0,25,25)';
+                        ctxMain.font = "bold 1.8em Quartz MS";
+                        break;
+                    case 'planszaJasny':
+                        ctxMain.fillStyle = 'rgb(255,242,0)';
+                        ctxMain.font = "1.8em Quartz MS";
+                        break;
+                }
+            }
+
+            function PokazWartosciTablicy() {
+                for (var i = 0; i < plansza.length; i++) {
+                    for (var j = 0; j < plansza[i].length; j++) {
+                        ctxMain.fillText(plansza[i][j], i * scianka + 8, j * scianka + 24);
+                    }
+                }
+            }
+
+            function PokazBadaneWartosci(a, b, c, d, e, f, h) {
+                ctxMain.fillText(a, 50, 50);
+                ctxMain.fillText(b, 50, 80);
+                ctxMain.fillText( + c + "Y=" + d, 50, 110);
+                ctxMain.fillText("wrog[0].LicznikX=" + e, 50, 140);
+            }
+
+        </script>
+    </body>
+</html>

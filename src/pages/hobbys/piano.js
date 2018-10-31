@@ -6,7 +6,7 @@ const piano = () => (
     <h1>nauką gry na pianinie</h1>
     <article>
       <div>
-        Jestem samoukiem i bardzo chciałbym się nauczyć improwizować na pianine. Do tego muszę poznać wszystkie tonacje i akordy. Moim celem jest kiedyś zagrać w Studiu im. Agnieszki Osieckiej w radiowej Trójce!
+        Jestem samoukiem i bardzo chciałbym posiąść umiejętność improwizacji na pianine. Do tego muszę poznać wszystkie tonacje i akordy. Moim celem jest kiedyś zagrać w Studiu im. Agnieszki Osieckiej w radiowej Trójce!
       </div>
       <img className='image80 smaller' src={stareMiasto} alt='Pianino na Starym Mieście'/>
     </article>

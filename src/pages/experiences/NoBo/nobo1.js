@@ -1,5 +1,5 @@
 import React from 'react';
-import LiSign from '../../../components/liSign.js';
+import LiWithSign from '../../../components/liWithSign.js';
 
 const nobo1 = () => (
   <section className='withLeftHeader doubledHeader'>
@@ -23,8 +23,8 @@ const nobo1 = () => (
         <div>moje zadania</div>
         <div>
           <ul>
-            <li><LiSign/>współtworzenie projektów responsywnych stron internetowych na podstawie plików PSD w oparciu o autorski CMS firmy</li>
-            <li><LiSign/>zarządzanie przepływem danych aplikacji za pomocą Smarty</li>
+            <LiWithSign>współtworzenie projektów responsywnych stron internetowych na podstawie plików PSD w oparciu o autorski CMS firmy</LiWithSign>
+            <LiWithSign>zarządzanie przepływem danych aplikacji za pomocą Smarty</LiWithSign>
           </ul>
         </div>
       </div>

@@ -12,8 +12,8 @@ import {
   WebDevelopingSkills,
   LibrarySkills,
   Togedo1,
-  Togedo2,
-  Ng1,
+  Shedul1,
+  Shedul2,
   Leon1,
   Leon2,
   Nobo1,
@@ -23,13 +23,12 @@ import {
   Uwb1,
   About,
   Kamilograpp1,
-  Kamilograpp2,
   HobbysMain,
   Piano,
   Impro,
   Youtube,
   PbGames,
-} from '../pages/pages.js';
+} from '../pages';
 
 const desktop = () => (
   <Impress hint={true}
@@ -37,221 +36,42 @@ const desktop = () => (
     progress={true}
     fallbackMessage={<p>Niestety <b>twoja przeglądarka lub urządzenie mobilne</b> nie wspiera elementów tej strony poprawnie. Jeśli tak jest, wejdź tu.</p>}
   >
-
-    <Step
-      data={s.mainHeader}
-      duration={800}
-      className='theVeryFirst'
-      id="title"
-    >
-      <NameHeader />
-    </Step>
-
-    <Step
-      data={s.mainData}
-      duration={800}
-      id="about"
-    >
-      <ArticleMainWithAside />
-    </Step>
-
-    <Step
-      data={s.skillsMainAndCircles}
-      duration={800}
-      className='withDemonstrableHeader taller'
-      id="skills"
-    >
-      <Skills />
-    </Step>
-
-    <Step
-      data={s.skillsPerc}
-      duration={700}
-      className='transparent secondExperience'
-      id="skills2"
-    >
-      <WebDevelopingSkills />
-    </Step>
-
-    <Step
-      data={s.skillsLibrary}
-      duration={700}
-      className='transparent thirdExperience'
-      id="skills3"
-    >
-      <LibrarySkills />
-    </Step>
-
-    <Step
-      data={s.mainExperiences}
-      duration={700}
-      className='showManySteps'
-      id="experiences"
-    >
-      <ExperiencesTimeline />
-    </Step>
-
-    <Step
-      data={s.nobo}
-      duration={800}
-      className='hiding withDemonstrableHeader'
-      id="no-bo"
-    >
-      <Nobo1 />
-    </Step>
-
-    <Step
-      data={s.nobo}
-      duration={800}
-      className='hiding subPage withDemonstrableHeader'
-      id="no-bo2"
-    >
-      <Nobo2 />
-    </Step>
-
-    <Step
-      data={s.leon}
-      duration={800}
-      className='hiding h640 withDemonstrableHeader'
-      id="leon"
-    >
-      <Leon1 />
-    </Step>
-
-    <Step
-      data={s.leon}
-      duration={800}
-      className='hiding subPage h640 withDemonstrableHeader'
-      id="leon2"
-    >
-      <Leon2 />
-    </Step>
-
-    <Step
-      data={s.ngs}
-      duration={800}
-      className='hiding withDemonstrableHeader'
-      id="ng-software"
-    >
-      <Ng1 />
-    </Step>
-
-    <Step
-      data={s.togedo}
-      duration={800}
-      className='hiding withDemonstrableHeader'
-      id='togedo'
-    >
-      <Togedo1 />
-    </Step>
-
-    <Step
-      data={s.education}
-      duration={700}
-      className='taller showManySteps'
-      id="education"
-    >
-      <EducationTimeline />
-    </Step>
-
-    <Step
-      data={s.uwb}
-      duration={800}
-      className='hiding withDemonstrableHeader'
-      id="uniwersytet-w-bialymstoku"
-    >
-      <Uwb1 />
-    </Step>
-
-    <Step
-      data={s.pb}
-      duration={800}
-      className='hiding h640 withDemonstrableHeader'
-      id="politechnika-bialostocka1"
-    >
-      <Pb1 />
-    </Step>
-
-    <Step
-      data={s.pb}
-      duration={800}
-      className='hiding subPage h640 withDemonstrableHeader'
-      id="politechnika-bialostocka2"
-    >
-      <Pb2 />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.about}
-      id="more-about"
-    >
-      <About />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.kamilograpp}
-      className='hiding h640'
-      id="kamilograpp1"
-    >
-      <Kamilograpp1 />
-    </Step>
-
-    <Step
-      duration={700}
-      data={s.kamilograpp}
-      className='hiding subPage h640'
-      id="kamilograpp2"
-    >
-      <Kamilograpp2 />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.mainHobbys}
-      className='showManySteps'
-      id="hobby"
-    >
-      <HobbysMain />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.piano}
-      className='withDemonstrableHeader hiding'
-      id="piano-learning"
-    >
-      <Piano />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.impro}
-      className='withDemonstrableHeader hiding'
-      id="theatre-improvisation"
-    >
-      <Impro />
-    </Step>
-
-    <Step
-      duration={800}
-      data={s.youtube}
-      className='withDemonstrableHeader hiding'
-      id="youtube-channel"
-    >
-      <Youtube />
-    </Step>
-
-    <Step
-      data={s.ending}
-      duration={800}
-      id="ending"
-    >
-      <PbGames />
-      <DesktopFooter />
-    </Step>
+    {StepContainer('mainHeader', 800, 'theVeryFirst', 'title', [<NameHeader />])}
+    {StepContainer("mainData", 800, "", "about", [<ArticleMainWithAside />])}
+    {StepContainer("skillsMainAndCircles", 800, 'withDemonstrableHeader taller', "skills" , [<Skills />])}
+    {StepContainer("skillsPerc", 700, 'transparent secondExperience', "skills2", [<WebDevelopingSkills />])}
+    {StepContainer("skillsLibrary", 700, 'transparent thirdExperience', "skills3" , [<LibrarySkills />])}
+    {StepContainer("mainExperiences", 700, 'showManySteps', "experiences" , [<ExperiencesTimeline />])}
+    {StepContainer("nobo", 800, 'hiding withDemonstrableHeader', "no-bo" , [<Nobo1 />])}
+    {StepContainer("nobo", 800, 'hiding subPage withDemonstrableHeader', "no-bo2" , [<Nobo2 />])}
+    {StepContainer("leon", 800, 'hiding h640 withDemonstrableHeader', "leon" , [<Leon1 />])}
+    {StepContainer("leon", 800, 'hiding subPage h640 withDemonstrableHeader', "leon2" , [<Leon2 />])}
+    {StepContainer("togedo", 800, 'hiding withDemonstrableHeader', 'togedo' , [<Togedo1 />])}
+    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader', "shedul1", [<Shedul1 />])}
+    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader', "shedu2", [<Shedul2 />])}
+    {StepContainer("education", 700, 'taller showManySteps', "education" , [<EducationTimeline />])}
+    {StepContainer("uwb", 800, 'hiding withDemonstrableHeader', "uniwersytet-w-bialymstoku" , [<Uwb1 />])}
+    {StepContainer("pb", 800, 'hiding h640 withDemonstrableHeader', "politechnika-bialostocka1" , [<Pb1 />])}
+    {StepContainer("pb", 800, 'hiding subPage h640 withDemonstrableHeader', "politechnika-bialostocka2" , [<Pb2 />])}
+    {StepContainer("about", 800, "", "more-about", [<About />],)}
+    {StepContainer("kamilograpp", 800, 'hiding h640', "kamilograpp1", [<Kamilograpp1 />])}
+    {StepContainer("mainHobbys", 800, 'showManySteps', "hobby", [<HobbysMain />])}
+    {StepContainer("piano", 800, 'withDemonstrableHeader hiding', "piano-learning" , [<Piano />])}
+    {StepContainer("impro", 800, 'withDemonstrableHeader hiding', "theatre-improvisation", [<Impro />])}
+    {StepContainer("youtube", 800, 'withDemonstrableHeader hiding', "youtube-channel", [<Youtube />])}
+    {StepContainer("ending", 800, "", "ending", [<PbGames />,  <DesktopFooter />])}
   </Impress>
+)
+
+export const StepContainer = (data, duration, className='', id, componentArray) => (
+  <Step
+    data={s[data]}
+    duration={duration}
+    id={id}
+    className={className}
+  >
+    {componentArray}
+  </Step>
 )
 
 export default desktop;

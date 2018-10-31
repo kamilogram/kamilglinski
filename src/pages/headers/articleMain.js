@@ -14,7 +14,8 @@ const articleMain = () => (
         <img
           className='textLogo react'
           src={react}
-        alt='react logo' />
+          alt='react logo'
+        />
       </div>
     </div>
     <div>
@@ -23,7 +24,8 @@ const articleMain = () => (
         <img
           className='textLogo'
           src={redux}
-        alt='redux logo' />
+          alt='redux logo'
+        />
       </div>
     </div>
     <div>
@@ -32,11 +34,13 @@ const articleMain = () => (
         <img
           className='textLogo'
           src={js}
-        alt='js logo' />
+          alt='js logo'
+        />
         <img
           className='textLogo'
           src={jsEs6}
-        alt='es6 logo' />
+          alt='es6 logo'
+        />
       </div>
     </div>
     <div>
@@ -45,7 +49,8 @@ const articleMain = () => (
         <img
           className='textLogo'
           src={html5css3}
-        alt='html5 + css3 logo' />
+          alt='html5 + css3 logo'
+        />
       </div>
     </div>
   </article>

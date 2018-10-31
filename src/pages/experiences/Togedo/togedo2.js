@@ -1,5 +1,5 @@
 import React from 'react';
-import LiSign from '../../../components/liSign.js';
+import LiWithSign from '../../../components/liWithSign.js';
 
 const togedo2 = () => (
   <section className='withLeftHeader'>
@@ -14,12 +14,12 @@ const togedo2 = () => (
         <div>moje zadania</div>
         <div>
           <ul>
-            <li><LiSign/>tworzenie nowych komponentów i modyfikowanie istniejących</li>
-            <li><LiSign/>przenoszenie fragmentów widoku aplikacji z <a href='http://www.gwtproject.org/' target='_blank' rel='noopener noreferrer'>technologii GWT</a> (Google Web Toolkit) do React'a</li>
-            <li><LiSign/>debuggowanie istniejącego kodu i zgłaszanie nowych błędów działania aplikacji</li>
-            <li><LiSign/>weryfikacja nowego kodu tworzonego przez innych programistów teamu (code review)</li>
-            <li><LiSign/>zgłaszanie pomysłów na rozwój aplikacji</li>
-            <li><LiSign/>odpowiedzialność za wygląd i poprawne działanie głównego menu aplikacji</li>
+            <LiWithSign>tworzenie nowych komponentów i modyfikowanie istniejących</LiWithSign>
+            <LiWithSign>przenoszenie fragmentów widoku aplikacji z <a href='http://www.gwtproject.org/' target='_blank' rel='noopener noreferrer'>technologii GWT</a> (Google Web Toolkit) do React'a</LiWithSign>
+            <LiWithSign>debuggowanie istniejącego kodu i zgłaszanie nowych błędów działania aplikacji</LiWithSign>
+            <LiWithSign>weryfikacja nowego kodu tworzonego przez innych programistów teamu (code review)</LiWithSign>
+            <LiWithSign>zgłaszanie pomysłów na rozwój aplikacji</LiWithSign>
+            <LiWithSign>odpowiedzialność za wygląd i poprawne działanie głównego menu aplikacji</LiWithSign>
           </ul>
         </div>
         <div>
