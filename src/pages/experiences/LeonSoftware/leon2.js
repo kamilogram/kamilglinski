@@ -15,7 +15,7 @@ const leon2 = () => (
         <div>
           <ul>
             <LiWithSign>tworzenie nowych komponentów i modyfikowanie istniejących</LiWithSign>
-            <LiWithSign>przenoszenie fragmentów widoku aplikacji z <a href='http://www.gwtproject.org/' target='_blank' rel='noopener noreferrer'>technologii GWT (Google Web Toolkit)</a> do React'a</LiWithSign>
+            <LiWithSign>przenoszenie fragmentów widoku aplikacji z technologii GWT (Google Web Toolkit) do React'a</LiWithSign>
             <LiWithSign>debuggowanie istniejącego kodu i zgłaszanie nowych błędów działania aplikacji</LiWithSign>
             <LiWithSign>weryfikacja nowego kodu tworzonego przez innych programistów teamu (code review)</LiWithSign>
             <LiWithSign>zgłaszanie pomysłów na rozwój aplikacji</LiWithSign>

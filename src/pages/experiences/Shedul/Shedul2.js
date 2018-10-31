@@ -3,8 +3,9 @@ import LiWithSign from '../../../components/liWithSign.js';
 
 const Shedul2 = () => (
   <section className='withLeftHeader'>
-    <h1>SURGE Ventures</h1>
+    <h1 className="smallerTitle">SURGE Ventures</h1>
     <article className='descSections subPageContentContainer'>
+      <br />
       <div>
         <div>Stack front-end'u</div>
         <div>React w wersji od v16.0.0 do v16.4.0, 
@@ -26,6 +27,7 @@ const Shedul2 = () => (
             1. Team integracyjny:
             <LiWithSign>naprawa zgłoszonych bugów na różnych urządzeniach</LiWithSign>
             <LiWithSign>wpółpraca z testerami przy zgłaszaniu wychwyconych bugów</LiWithSign>
+            <br />
             2. Team scrum'owy:
             <LiWithSign>współtworzenie nowych feature'ów zaprojektowanych przez team produktowy</LiWithSign>
             <LiWithSign>rozszerzanie funkcjonalności istniejących widoków i komponentów</LiWithSign>
@@ -33,6 +35,7 @@ const Shedul2 = () => (
             <LiWithSign>uczestnictwo we frontendowej międzyteamowej gildii</LiWithSign>
           </ul>
         </div>
+        <br />
         <div>
           <div>
             <span>link do strony firmy na </span>

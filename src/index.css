@@ -844,6 +844,10 @@ footer.deviceStep div {
   height: 640px;
 }
 
+.smallerTitle {
+  font-size: 3.4em !important;
+}
+
 @media all and (max-width: 659px) and (min-width: 50px) {
   .devicePresentation {
     font-size: 0.7em;
