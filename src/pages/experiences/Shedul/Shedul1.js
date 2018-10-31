@@ -3,7 +3,7 @@ import ShedulAppView from '../../../images/Shedul.PNG';
 import FreshaAppView from '../../../images/Fresha.PNG';
 
 const Shedul1 = () => (
-  <section className='withLeftHeader doubledHeader'>
+  <section className='withLeftHeader'>
     <h1>SURGE Ventures</h1>
     <article className='descSections'>
       <div>
@@ -19,7 +19,7 @@ const Shedul1 = () => (
       <div>
         <div>profil firmy</div>
         <div>Rozwijanie dwóch aplikacji webowych o zasięgu ogólnoświatowym:</div>
-        <div><b>Shedul</b> do zarządzania salonami Spa & Wellness - dla ich właścicieli</div>
+        <div><b>Shedul</b> do zarządzania salonami Spa & Wellness </div>
         <div><b>Fresha</b> - aplikacja kliencka - do wyszukiwania salonów oraz samodzielnej rezerwacji ich usług online.</div>
       </div>
       <div>wygląd aplikacji</div>
