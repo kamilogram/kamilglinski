@@ -47,8 +47,8 @@ const desktop = () => (
     {StepContainer("leon", 800, 'hiding h640 withDemonstrableHeader', "leon" , [<Leon1 />])}
     {StepContainer("leon", 800, 'hiding subPage h640 withDemonstrableHeader', "leon2" , [<Leon2 />])}
     {StepContainer("togedo", 800, 'hiding withDemonstrableHeader', 'togedo' , [<Togedo1 />])}
-    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader', "shedul1", [<Shedul1 />])}
-    {StepContainer("shedul", 800, 'hiding subPage', "shedul2", [<Shedul2 />])}
+    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader', "surge1", [<Shedul1 />])}
+    {StepContainer("shedul", 800, 'hiding subPage', "surge2", [<Shedul2 />])}
     {StepContainer("education", 700, 'taller showManySteps', "education" , [<EducationTimeline />])}
     {StepContainer("uwb", 800, 'hiding withDemonstrableHeader', "uniwersytet-w-bialymstoku" , [<Uwb1 />])}
     {StepContainer("pb", 800, 'hiding h640 withDemonstrableHeader', "politechnika-bialostocka1" , [<Pb1 />])}
