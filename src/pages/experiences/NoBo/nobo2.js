@@ -14,7 +14,8 @@ const nobo2 = () => (
             <div>Strona Ewy Chodakowskiej</div>
             <a
               href="http://www.ewachodakowska.pl/"
-              target='_blank' rel='noopener noreferrer'
+              target='_blank'
+              rel='noopener noreferrer'
               title='Zobacz stronę'
               className='imgAsLink'>
               <img

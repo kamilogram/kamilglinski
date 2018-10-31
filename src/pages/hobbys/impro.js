@@ -9,14 +9,14 @@ const impro = () => (
     <article>
       <div>
         <div>
-          Na tzw. "impro" trafiłem przypadkiem na początku 2016 roku i od tego czasu aktywnie uczestniczę w tego typu wydarzeniach.
+          Na tzw. "impro", czyli spektakle bez scenariusza powstające na oczach widzów trafiłem przypadkiem na początku 2016 roku. Od tego czasu aktywnie uczestniczę w tego typu wydarzeniach zarówno jako widz jak i uczestnik.
         </div>
         <div className='imagesWeb'>
           <img src={impro1} alt='impro 1'/>
           <img src={impro2} alt='impro 2'/>
         </div>
         <div>
-          Uczęszczałem na kursy do Szkoły Impro, Impro.lab'u, do szkoły "Só". Obecnie jestem członkiem jednej z warszawskich grup improwizacyjnych. Niemal w każdy czwartek biorę też czynny udział w "dżemach impro".
+          Uczęszczałem na kursy do Szkoły Impro, Impro.labu, do szkoły "Só". Obecnie należę do jednej z warszawskich grup improwizacyjnych z którą występuję raz w miesiącu. Niekiedy  biorę też udział w "dżemach impro".
         </div>
         <div className='imagesWeb'>
           <img src={impro3} alt='impro 3'/>

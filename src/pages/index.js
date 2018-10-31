@@ -21,7 +21,6 @@ export { default as Pb2 } from './education/PolitechnikaBialostocka/pb2';
 export { default as Uwb1 } from './education/UniwersytetWBialymstoku/uwb1';
 export { default as About } from './moreAbout/about';
 export { default as Kamilograpp1 } from './moreAbout/kamilograpp1';
-export { default as Kamilograpp2 } from './moreAbout/kamilograpp2';
 export { default as HobbysMain } from './hobbys/hobbysMain';
 export { default as Piano } from './hobbys/piano';
 export { default as Impro } from './hobbys/impro';

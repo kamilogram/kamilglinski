@@ -1,7 +1,7 @@
 import React from 'react';
 import youTube from '../../images/youTube.png';
 
-const youtube = () => (
+const Youtube = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Kanałem na YouTube</h1>
     <article>
@@ -22,10 +22,10 @@ const youtube = () => (
         </a>
       </div>
       <div>
-        Kanał idzie mi całkiem nieźle, mam już ponad 900 tysięcy wyświetleń i ponad 1500 subskrybentów, z czego nie ukrywam, że jestem bardzo dumny.
+        Kanał idzie mi całkiem nieźle, mam już w sumie ponad 1 000 000 wyświetleń i około 1700 subskrybentów, z czego nie ukrywam, że jestem bardzo dumny.
       </div>
     </article>
   </section>
 )
 
-export default youtube;
+export default Youtube;
