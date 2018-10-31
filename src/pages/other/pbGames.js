@@ -11,7 +11,7 @@ const pbGames = () => (
         <div>
           <div>AhmedMan</div>
           <a
-            href="http://www.glinskikamil.pl/ahmedman"
+            href="https://kamilogram.github.io/kamilglinski/apps/Ahmedman"
             target='_blank'
             rel='noopener noreferrer'
             title='Zobacz grę'
@@ -27,7 +27,7 @@ const pbGames = () => (
         <div>
           <div>Galaxian</div>
           <a
-            href="http://www.glinskikamil.pl/galaxian"
+            href="https://kamilogram.github.io/kamilglinski/apps/Galaxian"
             target='_blank'
             rel='noopener noreferrer'
             title='Zobacz stronę'
