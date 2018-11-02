@@ -23,7 +23,8 @@ import {
   HobbysMain,
   Piano,
   Impro,
-  Youtube
+  Youtube,
+  Ending,
 } from '../pages/index.js';
 
 const Mobile = () => (
@@ -41,7 +42,7 @@ const Mobile = () => (
       </section>
     </div>
     <div className='step deviceStep withSubHeader'><Shedul1 /></div>
-    <div className='step deviceStep withSubHeader'><Shedul2 /></div>
+    <div className='step deviceStep withoutH1'><Shedul2 /></div>
     <div className='step deviceStep withSubHeader'><Togedo1 /></div>
     <div className='step deviceStep withSubHeader'><Leon1 /></div>
     <div className='step deviceStep withoutH1'><Leon2 /></div>
@@ -61,6 +62,7 @@ const Mobile = () => (
     <div className='step deviceStep withSubHeader'><Piano /></div>
     <div className='step deviceStep withSubHeader'><Impro /></div>
     <div className='step deviceStep withSubHeader'><Youtube /></div>
+    <div className='step deviceStep withSubHeader'><Ending /></div>
     <footer className='step deviceStep'><MobileFooter /></footer>
   </div>
 )

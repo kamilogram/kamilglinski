@@ -25,4 +25,4 @@ export { default as HobbysMain } from './hobbys/hobbysMain';
 export { default as Piano } from './hobbys/piano';
 export { default as Impro } from './hobbys/impro';
 export { default as Youtube } from './hobbys/youtube';
-export { default as PbGames } from './other/pbGames';
+export { default as Ending } from './other/Ending';

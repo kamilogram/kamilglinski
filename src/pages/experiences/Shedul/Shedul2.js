@@ -3,7 +3,7 @@ import LiWithSign from '../../../components/liWithSign.js';
 
 const Shedul2 = () => (
   <section className='withLeftHeader'>
-    <h1 className="smallerTitle">SURGE Ventures</h1>
+    <h1 className="smallerTitle">Surge Ventures</h1>
     <article className='descSections subPageContentContainer'>
       <br />
       <div>
