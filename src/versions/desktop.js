@@ -1,13 +1,12 @@
 import React from 'react';
-import { Impress, Step } from 'react-impressjs';
-import s from '../stepsData';
+import { Impress } from 'react-impressjs';
 import ExperiencesTimeline from '../components/experiencesTimeline';
+import StepContainer from '../components/StepContainer';
 import EducationTimeline from '../components/educationTimeline';
 
 import {
   NameHeader,
   ArticleMainWithAside,
-  DesktopFooter,
   Skills,
   WebDevelopingSkills,
   LibrarySkills,
@@ -59,19 +58,8 @@ const desktop = () => (
     {StepContainer("piano", 800, 'withDemonstrableHeader hiding', "piano-learning" , [<Piano />])}
     {StepContainer("impro", 800, 'withDemonstrableHeader hiding', "theatre-improvisation", [<Impro />])}
     {StepContainer("youtube", 800, 'withDemonstrableHeader hiding', "youtube-channel", [<Youtube />])}
-    {StepContainer("ending", 800, "", "ending", [<Ending />,  <DesktopFooter />])}
+    {StepContainer("ending", 800, "", "ending", [<Ending />])}
   </Impress>
-)
-
-export const StepContainer = (data, duration, className='', id, componentArray) => (
-  <Step
-    data={s[data]}
-    duration={duration}
-    id={id}
-    className={className}
-  >
-    {componentArray}
-  </Step>
 )
 
 export default desktop;

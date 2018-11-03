@@ -10,7 +10,6 @@ export { default as LibrarySkills } from './skills/librarySkills';
 export { default as Shedul1 } from './experiences/Shedul/Shedul1';
 export { default as Shedul2 } from './experiences/Shedul/Shedul2';
 export { default as Togedo1 } from './experiences/Togedo/togedo1';
-export { default as Togedo2 } from './experiences/Togedo/togedo2';
 export { default as Ng1 } from './experiences/NGSoftware/ng1';
 export { default as Leon1 } from './experiences/LeonSoftware/leon1';
 export { default as Leon2 } from './experiences/LeonSoftware/leon2';

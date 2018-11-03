@@ -9,14 +9,14 @@ const experiencesTimeline = () => (
         <div className='timelineStrip2' />
 
         <div className='timelineMarker outsideMarker'>
-          <span>październik 2017 -<br/>luty 2018<br/></span>
+          <span>marzec 2018 -<br/>październik 2018<br/></span>
           <div className='roundMarker' />
           <div className='markerLine1' />
           <div className='markerLine2' />
         </div>
 
         <div className='timelineMarker'>
-          <span>czerwiec 2017 -<br/>wrzesień 2017<br/></span>
+          <span>październik 2017 -<br/>luty 2018<br/></span>
           <div className='roundMarker' />
           <div className='markerLine1' />
           <div className='markerLine2' />
