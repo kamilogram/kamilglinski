@@ -22,7 +22,6 @@ const Shedul1 = () => (
         <div><b>Shedul</b> do zarządzania salonami Spa & Wellness </div>
         <div><b>Fresha</b> - aplikacja kliencka - do wyszukiwania salonów oraz samodzielnej rezerwacji ich usług online.</div>
       </div>
-      <div>wygląd aplikacji</div>
       <div className='imagesWeb'>
         <div>
           <a

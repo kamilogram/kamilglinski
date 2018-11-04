@@ -244,7 +244,6 @@ body {
 /*content*/
 .descSections div div:first-child{
   text-transform: uppercase;
-  font-size: 0.9em;
   text-align: left;
   color: green;
 }
@@ -474,6 +473,10 @@ li {
   vertical-align: middle;
 }
 
+.pageLink {
+  margin-top: 0.5em;
+}
+
 .imagesWeb {
   display: flex;
   flex-wrap: wrap;
@@ -522,7 +525,7 @@ li {
 .impress-enabled .step a,
 .deviceStep a {
   background-color: inherit;
-  color: #903f00;
+  color: #ec9046;
   border-radius: 0;
   padding: 0;
   text-decoration: none;
@@ -592,7 +595,7 @@ a:hover,
 }
 
 #react-impressjs {
-  background-image: url(./images/background11.jpg);
+  background-image: url(./images/background14.png);
   background-size: cover;
 }
 
@@ -605,11 +608,10 @@ a:hover,
 }
 
 .hint {
-  opacity: 0;
   -webkit-animation: fadeOutUp .6s ease forwards;
   animation: fadeOutUp .6s ease forwards;
   color: rgba(30, 30, 30, 0.7);
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   text-shadow: 1px 1px 9px rgba(221, 113, 28, 0.3);
   text-align: center;
@@ -625,6 +627,7 @@ a:hover,
   filter: drop-shadow(0 8px 8px rgba(0,0,0,.2));
   font-weight: 600;
   font-family: Coda;
+  box-shadow: 0 0 20px 15px rgba(255, 255, 255, 0.5);
 }
 
 /*device*/
@@ -639,7 +642,7 @@ a:hover,
   top: 0;
   height: 100vh;
   width: 100vw;
-  background-image: url(./images/background8.jpg);
+  background-image: url(./images/background14.png);
   background-size: cover;
   background-position-x: 50%;
 }
@@ -852,6 +855,11 @@ footer.deviceStep div {
   .smallerTitle {
     font-size: 2em !important;
   }
+
+  footer {
+    margin-top: 2em;
+    margin-bottom: 30vh;
+  }
 }
 
 @media all and (max-width: 659px) and (min-width: 50px) {
@@ -863,7 +871,7 @@ footer.deviceStep div {
     font-size: 2.5em;
   }
   
-  .step.deviceStep>section>h1{
+  .step.deviceStep>section>h1 {
     font-size: 2.5em;
   }
 }

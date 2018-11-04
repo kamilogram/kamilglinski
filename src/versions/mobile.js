@@ -4,7 +4,6 @@ import {
   NameHeader,
   ArticleMain,
   AsideInside,
-  MobileFooter,
   Skills,
   WebDevelopingSkills,
   LibrarySkills,
@@ -63,9 +62,7 @@ const Mobile = () => (
     <div className='step deviceStep withSubHeader'><Impro /></div>
     <div className='step deviceStep withSubHeader'><Youtube /></div>
     <div className='step deviceStep withSubHeader'><Ending /></div>
-    <footer className='step deviceStep'><MobileFooter /></footer>
   </div>
 )
-
 
 export default Mobile;

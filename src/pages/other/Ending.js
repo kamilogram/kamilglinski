@@ -1,5 +1,5 @@
 import React from 'react';
-import { DesktopFooter } from '../../pages';
+import { Footer } from '../../pages';
 
 const Ending = () => (
   <section className='withLeftHeader'>
@@ -16,7 +16,7 @@ const Ending = () => (
           <a href="tel:505443406">505 443 406</a>
         </div>
       </div>
-      <DesktopFooter />
+      <Footer />
     </article>
   </section>
 )

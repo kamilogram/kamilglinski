@@ -7,14 +7,39 @@ import Desktop from './versions/Desktop';
 import Mobile from './versions/Mobile';
 
 
-const app = () => {
-  const mobileViewport = window.matchMedia("screen and (max-width: 900px)");
+export default class App extends React.Component {
+  state = {
+    isMobile: true,
+  }
+  
+  updateDimensions() {
+    this.setState(({ isMobile:wasMobile }) => {
+      const isMobile = window.matchMedia("screen and (max-width: 900px)").matches;
+      if(!wasMobile && isMobile) {
+        window.location.reload(false); 
+      }
+      return {
+        isMobile
+      }
+    });
+  }
 
-  return (
-    <div className="App">
-      {mobileViewport.matches ? <Mobile /> : <Desktop />}
-    </div>
-  );
+  componentWillMount() {
+    this.updateDimensions();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  render () {return (
+      <div className="App">
+        {this.state.isMobile ? <Mobile /> : <Desktop />}
+      </div>
+    );
+  }
 }
-
-export default app;

@@ -18,7 +18,7 @@ const asideInside = () => (
       </div>
       <div className='asideSection'>
         <div>telefon</div>
-        <div>505 443 406</div>
+        <a href="tel:505443406">505 443 406</a>
       </div>
       <div className='asideSection'>
         <div>wiek</div>

@@ -35,9 +35,8 @@ const Shedul2 = () => (
             <LiWithSign>uczestnictwo we frontendowej międzyteamowej gildii</LiWithSign>
           </ul>
         </div>
-        <br />
         <div>
-          <div>
+          <div className='pageLink'>
             <span>link do strony firmy na </span>
             <a
             href='https://github.com/surgeventures/'

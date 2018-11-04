@@ -29,7 +29,7 @@ const nobo1 = () => (
         </div>
       </div>
       <div>
-        <div>
+        <div className='pageLink'>
           <span>link do strony: </span>
           <a href='http://www.no-bo.co/' target='_blank' rel='noopener noreferrer'>No-Bo</a>.
         </div>

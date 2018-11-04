@@ -23,7 +23,11 @@ const leon2 = () => (
           </ul>
         </div>
         <div>
-          <div><span>link do strony: </span><a href='http://www.leonsoftware.com/' target='_blank' rel='noopener noreferrer'>Leon Software</a>.</div>
+          <div className='pageLink'>
+            <span>link do strony: </span>
+            <a href='http://www.leonsoftware.com/' target='_blank' rel='noopener noreferrer'>Leon Software</a>
+            <span>.</span>
+          </div>
         </div>
       </div>
     </article>
