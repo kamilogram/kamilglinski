@@ -3,7 +3,7 @@ import testWebGL from '../../../images/testWebGL.png';
 
 const IMG_TITLE = 'Screen z testu wydajności grafiki 3D w przeglądarkach';
 
-const pb2 = () => (
+const Pb2 = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Politechnika Białostocka</h1>
     <article className='verticalJustified subPageContentContainer'>
@@ -18,4 +18,4 @@ const pb2 = () => (
   </section>
 )
 
-export default pb2;
+export default Pb2;

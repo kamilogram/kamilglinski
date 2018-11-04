@@ -3,7 +3,7 @@ import orbitals from '../../../images/orbitals.png';
 
 const IMG_TITLE = 'Screen z aplikacji do wyświetlania orbitali atomowych';
 
-const uwb1 = () => (
+const Uwb1 = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Uniwersytet w Białymstoku</h1>
     <article className='descSections verticalAligned'>
@@ -35,4 +35,4 @@ const uwb1 = () => (
   </section>
 )
 
-export default uwb1;
+export default Uwb1;

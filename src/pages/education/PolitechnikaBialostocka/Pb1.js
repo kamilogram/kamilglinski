@@ -1,6 +1,6 @@
 import React from 'react';
 
-const pb1 = () => (
+const Pb1 = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Politechnika Białostocka</h1>
     <article className='descSections verticalAligned'>
@@ -28,4 +28,4 @@ const pb1 = () => (
   </section>
 )
 
-export default pb1;
+export default Pb1;
