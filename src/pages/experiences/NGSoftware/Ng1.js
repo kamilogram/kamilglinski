@@ -1,7 +1,7 @@
 import React from 'react';
 import Filttr from '../../../images/Filttr.PNG';
 
-const ng1 = () => (
+const Ng1 = () => (
   <section className='withLeftHeader'>
     <h1>NG Software</h1>
     <article className='descSections'>
@@ -35,4 +35,4 @@ const ng1 = () => (
   </section>
 )
 
-export default ng1;
+export default Ng1;

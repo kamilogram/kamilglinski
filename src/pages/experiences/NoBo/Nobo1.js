@@ -1,7 +1,7 @@
 import React from 'react';
 import LiWithSign from '../../../components/liWithSign.js';
 
-const nobo1 = () => (
+const Nobo1 = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>No-Bo</h1>
     <article className='descSections verticalAligned'>
@@ -38,4 +38,4 @@ const nobo1 = () => (
   </section>
 )
 
-export default nobo1;
+export default Nobo1;

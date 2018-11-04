@@ -3,7 +3,7 @@ import Ewa from '../../../images/Ewa.PNG';
 import abaPlus from '../../../images/abaPlus.PNG';
 import q from '../../../images/q.PNG';
 
-const nobo2 = () => (
+const Nobo2 = () => (
   <section className='withLeftHeader'>
     <h1>No-Bo</h1>
     <article className='descSections'>
@@ -57,4 +57,4 @@ const nobo2 = () => (
   </section>
 )
 
-export default nobo2;
+export default Nobo2;

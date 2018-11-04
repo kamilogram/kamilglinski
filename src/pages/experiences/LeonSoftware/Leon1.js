@@ -1,7 +1,7 @@
 import React from 'react';
 import LeonAppView from '../../../images/LeonAppView.PNG';
 
-const leon1 = () => (
+const Leon1 = () => (
   <section className='withLeftHeader'>
     <h1>Leon Software</h1>
     <article className='descSections'>
@@ -37,4 +37,4 @@ const leon1 = () => (
 )
 
 
-export default leon1;
+export default Leon1;
