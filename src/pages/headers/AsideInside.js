@@ -1,7 +1,7 @@
 import React from 'react';
 import personPic from '../../images/personPic.png';
 
-const asideInside = () => (
+const AsideInside = () => (
   <div>
     <img
       className='asideImg'
@@ -32,4 +32,4 @@ const asideInside = () => (
   </div>
 )
 
-export default asideInside
+export default AsideInside

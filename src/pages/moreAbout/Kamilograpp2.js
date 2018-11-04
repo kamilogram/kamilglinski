@@ -1,7 +1,7 @@
 import React from 'react';
 import kamilograppLogo from '../../images/kamilograppLogoNew.png';
 
-const kamilograpp2 = () => (
+const Kamilograpp2 = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Mój autorski projekt</h1>
     <article className='verticalJustified'>
@@ -29,4 +29,4 @@ const kamilograpp2 = () => (
   </section>
 )
 
-export default kamilograpp2;
+export default Kamilograpp2;

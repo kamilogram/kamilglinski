@@ -1,6 +1,6 @@
 import React from 'react';
 
-const hobbysMain = () => (
+const HobbysMain = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Inne zainteresowania</h1>
     <article>
@@ -11,4 +11,4 @@ const hobbysMain = () => (
   </section>
 )
 
-export default hobbysMain;
+export default HobbysMain;

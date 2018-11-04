@@ -5,7 +5,7 @@ import js from '../../images/js.png';
 import html5css3 from '../../images/html5css3.png';
 import jsEs6 from '../../images/JS_ES6.png';
 
-const articleMain = () => (
+const ArticleMain = () => (
   <article className='withTextImages verticalJustified closeEnough'>
     <h6>Technologie / frameworki</h6>
     <div>
@@ -56,4 +56,4 @@ const articleMain = () => (
   </article>
 )
 
-export default articleMain;
+export default ArticleMain;

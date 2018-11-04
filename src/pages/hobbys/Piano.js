@@ -1,7 +1,7 @@
 import React from 'react';
 import stareMiasto from '../../images/stareMiasto.jpg';
 
-const piano = () => (
+const Piano = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>nauką gry na pianinie</h1>
     <article>
@@ -13,4 +13,4 @@ const piano = () => (
   </section>
 )
 
-export default piano;
+export default Piano;

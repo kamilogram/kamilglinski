@@ -1,10 +1,10 @@
 import React from 'react'
 
-const nameHeader = () => (
+const NameHeader = () => (
   <header>
     <div>Kamil Gliński</div>
     <div>front-end developer</div>
   </header>
 )
 
-export default nameHeader
+export default NameHeader

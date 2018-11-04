@@ -3,7 +3,7 @@ import impro1 from '../../images/impro1.jpg';
 import impro2 from '../../images/impro2.jpg';
 import impro3 from '../../images/impro3.jpg';
 
-const impro = () => (
+const Impro = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>improwizacją sceniczną</h1>
     <article>
@@ -26,4 +26,4 @@ const impro = () => (
   </section>
 )
 
-export default impro;
+export default Impro;

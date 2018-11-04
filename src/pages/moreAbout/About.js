@@ -1,6 +1,6 @@
 import React from 'react';
 
-const about = () => (
+const About = () => (
   <section className='withLeftHeader'>
     <h1>Więcej o mnie</h1>
     <article className='verticalJustified withMargins'>
@@ -17,4 +17,4 @@ const about = () => (
   </section>
 )
 
-export default about;
+export default About;
