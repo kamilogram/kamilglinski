@@ -295,10 +295,6 @@ body {
   height: 2.9em;
 }
 
-.redux {
-  tranform-origin: 0 0;
-}
-
 .image100 {
   width: 100%;
   box-sizing: border-box;
