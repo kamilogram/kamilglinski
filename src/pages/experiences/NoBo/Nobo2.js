@@ -11,7 +11,7 @@ const Nobo2 = () => (
         <header>Strony współtowrzone w No-Bo:</header>
         <div className='imagesWeb'>
           <div>
-            <div>Strona Ewy Chodakowskiej</div>
+            <div>Ewa Chodakowska</div>
             <a
               href="http://www.ewachodakowska.pl/"
               target='_blank'
@@ -25,7 +25,7 @@ const Nobo2 = () => (
             </a>
           </div>
           <div>
-            <div>Strona firmy Aba Plus</div>
+            <div>Aba Plus</div>
             <a
               href="http://www.abaplus.pl/"
               target='_blank' rel='noopener noreferrer'

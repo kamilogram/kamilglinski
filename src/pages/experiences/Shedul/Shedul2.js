@@ -5,7 +5,6 @@ const Shedul2 = () => (
   <section className='withLeftHeader'>
     <h1>Shedul</h1>
     <article className='descSections subPageContentContainer'>
-      <br />
       <div>
         <div>Stack front-end'u</div>
         <div>React w wersji od v16.0.0 do v16.4.0, 

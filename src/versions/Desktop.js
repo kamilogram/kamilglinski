@@ -41,13 +41,13 @@ const desktop = () => (
     {StepContainer("skillsPerc", 700, 'transparent secondExperience', "skills2", <WebDevelopingSkills />)}
     {StepContainer("skillsLibrary", 700, 'transparent thirdExperience', "skills3" , <LibrarySkills />)}
     {StepContainer("mainExperiences", 700, 'showManySteps', "experiences" , <ExperiencesTimeline />)}
-    {StepContainer("nobo", 800, 'hiding withDemonstrableHeader', "no-bo" , <Nobo1 />)}
-    {StepContainer("nobo", 800, 'hiding subPage withDemonstrableHeader', "no-bo2" , <Nobo2 />)}
+    {StepContainer("nobo", 800, 'hiding withDemonstrableHeader h640', "no-bo" , <Nobo1 />)}
+    {StepContainer("nobo", 800, 'hiding subPage withDemonstrableHeader h640', "no-bo2" , <Nobo2 />)}
     {StepContainer("leon", 800, 'hiding h640 withDemonstrableHeader', "leon" , <Leon1 />)}
     {StepContainer("leon", 800, 'hiding subPage h640 withDemonstrableHeader', "leon2" , <Leon2 />)}
     {StepContainer("togedo", 800, 'hiding withDemonstrableHeader', 'togedo' , <Togedo1 />)}
-    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader', "surge", <Shedul1 />)}
-    {StepContainer("shedul", 800, 'hiding subPage', "surge2", <Shedul2 />)}
+    {StepContainer("shedul", 800, 'hiding withDemonstrableHeader h640', "surge", <Shedul1 />)}
+    {StepContainer("shedul", 800, 'hiding subPage h640', "surge2", <Shedul2 />)}
     {StepContainer("education", 700, 'taller showManySteps', "education" , <EducationTimeline />)}
     {StepContainer("uwb", 800, 'hiding withDemonstrableHeader', "uniwersytet-w-bialymstoku" , <Uwb1 />)}
     {StepContainer("pb", 800, 'hiding h640 withDemonstrableHeader', "politechnika-bialostocka1" , <Pb1 />)}
