@@ -843,14 +843,7 @@ footer.deviceStep div {
   height: 640px;
 }
 
-.smallerTitle {
-  font-size: 3.4em !important;
-}
-
 @media all and (max-width: 900px) {
-  .smallerTitle {
-    font-size: 2em !important;
-  }
 
   footer {
     margin-top: 2em;

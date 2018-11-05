@@ -4,7 +4,7 @@ import FreshaAppView from '../../../images/Fresha.PNG';
       
 const Shedul1 = () => (
   <section className='withLeftHeader'>
-    <h1 className="smallerTitle">Surge Ventures</h1>
+    <h1>Shedul</h1>
     <article className='descSections'>
       <div>
         <div>stanowisko</div>
