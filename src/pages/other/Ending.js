@@ -15,6 +15,9 @@ const Ending = () => (
         <div>
           <a href="tel:505443406">505 443 406</a>
         </div>
+        <div>
+          <a href="https://www.linkedin.com/in/kamilglinski" target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+        </div>
       </div>
       <Footer />
     </article>
