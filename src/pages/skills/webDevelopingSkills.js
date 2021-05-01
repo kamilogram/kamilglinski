@@ -24,7 +24,7 @@ const webDevelopingSkills = () => (
         </div>
       </div>
       <div>
-        <div>Scrum</div>
+        <div>Jest</div>
         <div>
           <PercCircle value={50} color='green' />
         </div>
