@@ -13,7 +13,7 @@ const Nobo2 = () => (
           <div>
             <div>Ewa Chodakowska</div>
             <a
-              href="http://www.ewachodakowska.pl/"
+              href="http://no-bo.co/portfolio/project.php?project=ewa-chodakowska"
               target='_blank'
               rel='noopener noreferrer'
               title='Zobacz stronę'

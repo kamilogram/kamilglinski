@@ -17,7 +17,7 @@ const leon2 = () => (
             <LiWithSign>tworzenie nowych komponentów i modyfikowanie istniejących</LiWithSign>
             <LiWithSign>przenoszenie fragmentów widoku aplikacji z technologii GWT (Google Web Toolkit) do React'a</LiWithSign>
             <LiWithSign>debuggowanie istniejącego kodu i zgłaszanie nowych błędów działania aplikacji</LiWithSign>
-            <LiWithSign>weryfikacja nowego kodu tworzonego przez innych programistów teamu (code review)</LiWithSign>
+            <LiWithSign>code review innych programistów teamu</LiWithSign>
             <LiWithSign>zgłaszanie pomysłów na rozwój aplikacji</LiWithSign>
             <LiWithSign>odpowiedzialność za wygląd i poprawne działanie głównego menu aplikacji</LiWithSign>
           </ul>

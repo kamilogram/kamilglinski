@@ -382,7 +382,7 @@ a img:hover {
 
 .timelineStrip2 {
   transform: skewY(50deg);
-  left: 10px;
+  left: 9px;
 }
 
 .timelineMarker {
@@ -391,12 +391,11 @@ a img:hover {
 }
 
 .roundMarker {
-  left: 1px;
   position: absolute;
   z-index: 1;
   width: 19px;
   height: 18px;
-  top: 1px;
+  top: 22px;
   background-color: #dd711c;
 }
 
@@ -410,7 +409,7 @@ a img:hover {
 .horizontalTimeline .timelineMarker span {
   transform: rotateZ(-90deg);
   min-width: 150px;
-  top: -20px;
+  top: 0;
   left: -25px;
 }
 
@@ -424,6 +423,7 @@ a img:hover {
   height: 10px;
   background-color: rgb(81, 186, 29);
   right: 4px;
+  top: 22px;
 }
 
 .markerLine1 {
@@ -432,7 +432,7 @@ a img:hover {
 
 .markerLine2 {
   transform: skewX(50deg);
-  top: 9px;
+  top: 30px;
 }
 
 .outsideMarker [class^="markerLine"] {
@@ -452,11 +452,15 @@ a img:hover {
 }
 
 .green {
-  background-color: green;
+  background-color: orange;
 }
 
 .red {
   background-color: red;
+}
+
+.orange {
+  background-color: yellow;
 }
 
 li {
@@ -591,7 +595,7 @@ a:hover,
 }
 
 #react-impressjs {
-  background-image: url(./images/background14.png);
+  background-image: url(./images/background13.png);
   background-size: cover;
 }
 

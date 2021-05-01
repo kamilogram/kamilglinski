@@ -20,7 +20,7 @@ const librarySkills = () => (
         <LineSlide value={50} />
       </div>
       <div>
-        <span>mori</span>
+        <span>Styled Components</span>
         <LineSlide value={70} />
       </div>
       <div>

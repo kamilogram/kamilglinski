@@ -5,9 +5,11 @@ const Piano = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>nauką gry na pianinie</h1>
     <article>
+      <br />
       <div>
-        Jestem samoukiem i bardzo chciałbym posiąść umiejętność improwizacji na pianine. Do tego muszę poznać wszystkie tonacje i akordy. Moim celem jest kiedyś zagrać w Studiu im. Agnieszki Osieckiej w radiowej Trójce!
+        Jestem samoukiem i bardzo chciałbym posiąść umiejętność improwizacji gry na pianine.
       </div>
+      <br />
       <img className='image80 smaller' src={stareMiasto} alt='Pianino na Starym Mieście'/>
     </article>
   </section>

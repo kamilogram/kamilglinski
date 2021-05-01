@@ -7,16 +7,17 @@ const Impro = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>improwizacją sceniczną</h1>
     <article>
+      <br />
       <div>
         <div>
-          Na tzw. "impro", czyli spektakle bez scenariusza powstające na oczach widzów, trafiłem przypadkiem na początku 2016 roku. Od tego czasu aktywnie biorę udział w tego typu wydarzeniach, zarówno jako widz jak i uczestnik.
+          Na tzw. "impro", czyli spektakle bez scenariusza powstające na oczach widzów, trafiłem na początku 2016 roku. Od tego czasu aktywnie biorę udział w tego typu wydarzeniach, zarówno jako widz jak i uczestnik.
         </div>
         <div className='imagesWeb'>
           <img src={impro1} alt='impro 1'/>
           <img src={impro2} alt='impro 2'/>
         </div>
         <div>
-          Uczęszczałem na kursy do Szkoły Impro, Impro.labu, do szkoły "Só". Obecnie należę do jednej z warszawskich grup improwizacyjnych z którą występuję raz w miesiącu. Niekiedy  biorę też udział w tzw. "dżemach impro".
+          Uczęszczałem na kursy do Szkoły Impro, Impro.labu, do szkoły "Só". Obecnie należę do jednej z warszawskich grup improwizacyjnych.
         </div>
         <div className='imagesWeb'>
           <img src={impro3} alt='impro 3'/>

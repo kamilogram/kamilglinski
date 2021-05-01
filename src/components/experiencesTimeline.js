@@ -7,7 +7,12 @@ const experiencesTimeline = () => (
       <div className='timeline horizontalTimeline'>
         <div className='timelineStrip1' />
         <div className='timelineStrip2' />
-
+        <div className='timelineMarker'>
+          <span>grudzień 2018 -<br/>grudzień 2020<br/></span>
+          <div className='roundMarker' />
+          <div className='markerLine1' />
+          <div className='markerLine2' />
+        </div>
         <div className='timelineMarker outsideMarker'>
           <span>marzec 2018 -<br/>październik 2018<br/></span>
           <div className='roundMarker' />

@@ -5,6 +5,7 @@ const togedo1 = () => (
   <section className='withLeftHeader'>
     <h1>Togedo</h1>
     <article className='descSections'>
+      <br/>
       <div>
         <div>stanowisko</div>
         <b>front-end developer (React.js)</b>

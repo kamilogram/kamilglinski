@@ -22,7 +22,7 @@ const AsideInside = () => (
       </div>
       <div className='asideSection'>
         <div>wiek</div>
-        <div>33</div>
+        <div>35</div>
       </div>
       <div className='asideSection'>
         <div>miasto</div>

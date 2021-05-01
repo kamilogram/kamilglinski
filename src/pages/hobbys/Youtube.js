@@ -5,8 +5,9 @@ const Youtube = () => (
   <section className='withLeftHeader doubledHeader'>
     <h1>Kanałem na YouTube</h1>
     <article>
+      <br />
       <div>
-        Jako <a href='https://www.youtube.com/user/Kamilogram' target='_blank' rel='noopener noreferrer'>Kamilogram</a> tworzę klipy z karaoke do popularnych piosenek i udostępniam je na YouTube. Ale żeby się wyróżnić z wielu kanałów tworzących podobny materiał - aranżacje jakie tworzę do klipów brzmią jakby były grane na pianinie!
+        Jako <a href='https://www.youtube.com/user/Kamilogram' target='_blank' rel='noopener noreferrer'>Kamilogram</a> tworzę klipy z karaoke do popularnych piosenek i udostępniam je na YouTube. Ale żeby się wyróżnić z wielu kanałów tworzących podobny materiał - aranżacje brzmią jakby były grane na pianinie!
       </div>
       <div>
         <a
@@ -22,7 +23,7 @@ const Youtube = () => (
         </a>
       </div>
       <div>
-        Kanał idzie mi całkiem nieźle, mam już w sumie ponad 1 000 000 wyświetleń i około 1700 subskrybentów, z czego nie ukrywam, że jestem bardzo dumny.
+        Kanał idzie mi całkiem nieźle, mam już w sumie prawie &nbsp; 1 300 000 &nbsp;  wyświetleń i ponad 2000 subskrybentów, z czego, nie ukrywam, jestem bardzo dumny.
       </div>
     </article>
   </section>

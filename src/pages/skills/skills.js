@@ -5,17 +5,14 @@ const skills = () => (
   <section>
     <h1>Umiejętności</h1>
     <article className='halfArticle withInlineMarkers'>
+      <br/>
       <header>front-end</header>
       <div>
         <span>HTML5 + CSS3</span>
         <Dotter value={8}/>
       </div>
       <div>
-        <span>Java Script</span>
-        <Dotter value={8}/>
-      </div>
-      <div>
-        <span>ES6 (ECMAScript 2015)</span>
+        <span>Java Script (ES6)</span>
         <Dotter value={8}/>
       </div>
       <div>

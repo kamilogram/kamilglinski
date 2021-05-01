@@ -6,8 +6,8 @@ const StepContainer = (data, duration, className='', id, component) => (
   <Step
     data={stepData[data]}
     duration={duration}
-    id={id}
     className={className}
+    id={id}
   >
     {component}
   </Step>
