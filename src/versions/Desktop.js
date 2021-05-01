@@ -51,7 +51,7 @@ const desktop = () => (
     {StepContainer("shedul", 800, 'hiding withDemonstrableHeader h640', "surge", <Shedul1 />)}
     {StepContainer("shedul", 800, 'hiding subPage h640', "surge2", <Shedul2 />)}
     {StepContainer("ipfd", 800, 'hiding h640 withDemonstrableHeader', "ipfd", <IPFD1 />)}
-    {StepContainer("ipfd", 800, 'hiding subpage h640 withDemonstrableHeader', "ipfd2", <IPFD2 />)}
+    {StepContainer("ipfd", 800, 'hiding subPage h640 withDemonstrableHeader', "ipfd2", <IPFD2 />)}
     {StepContainer("education", 700, 'taller showManySteps', "education" , <EducationTimeline />)}
     {StepContainer("uwb", 800, 'hiding withDemonstrableHeader', "uniwersytet-w-bialymstoku" , <Uwb1 />)}
     {StepContainer("pb", 800, 'hiding h640 withDemonstrableHeader', "politechnika-bialostocka1" , <Pb1 />)}
