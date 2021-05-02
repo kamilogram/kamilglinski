@@ -851,13 +851,16 @@ footer.deviceStep div {
   position: relative;
 }
 
+.withLabel img {
+  box-shadow: rgba(201, 119, 8, 0.67) 5px 2px 19px 0px;
+}
+
 .imageLabel {
   position: absolute;
   top: 30%;
   left: 10%;
   width: 80%;
   background-color: white;
-  font-size: smaller;
   box-shadow: #903f00 1px 1px 1px 1px;
   border-radius: 5px;
 
