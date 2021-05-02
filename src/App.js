@@ -36,7 +36,8 @@ export default class App extends React.Component {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
-  render () {return (
+  render () {
+    return (
       <div className="App">
         {this.state.isMobile ? <Mobile /> : <Desktop />}
       </div>

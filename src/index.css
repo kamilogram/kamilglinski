@@ -847,8 +847,23 @@ footer.deviceStep div {
   height: 640px;
 }
 
-@media all and (max-width: 900px) {
+.withLabel {
+  position: relative;
+}
 
+.imageLabel {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  background-color: white;
+  font-size: smaller;
+  box-shadow: #903f00 1px 1px 1px 1px;
+  border-radius: 5px;
+
+}
+
+@media all and (max-width: 900px) {
   footer {
     margin-top: 2em;
     margin-bottom: 30vh;
