@@ -41,7 +41,7 @@ const Kamilograpp1 = () => {
                   className="imageLabel"
                   onClick={() => useLabel(false)}
                 >
-                  Uwaga - aplikacja nie jest jeszcze przystosowana na urządzenia mobilne.
+                  aplikacja nie jest jeszcze przystosowana na urządzenia mobilne.
                 </div>
               }
             </div>
